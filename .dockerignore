@@ -1,0 +1,12 @@
+.git
+.env
+A changer en arkos.zip
+backend
+api
+cloudflare
+backend/__pycache__
+backend/*.pyc
+database
+.env.example
+Dockerfile
+README.md

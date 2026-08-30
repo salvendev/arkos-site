@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Espace utilisateur ARKOS.">
+    <meta name="theme-color" content="#07110B">
+    <title>ARKOS — Espace utilisateur</title>
+    <link rel="shortcut icon" href="../storage/img/icone.png">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons19c1.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min19c1.css" rel="stylesheet">
+    <link href="../assets/css/base19c1.css" rel="stylesheet">
+    <link href="../assets/themes/rune/css/style19c1.css" rel="stylesheet">
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js" defer></script>
+    <script src="../assets/vendor/axios/axios.min19c1.js" defer></script>
+    <script src="../assets/js/script19c1.js" defer></script>
+    <script src="../assets/themes/rune/js/app19c1.js" defer></script>
+</head>
+<body data-bs-theme="dark">
+<div id="app">
+    <nav class="navbar navbar-expand-lg storycraft-nav fixed-top"><div class="container"></div></nav>
+    <section class="page-hero">
+        <div class="container page-header-shell">
+            <span class="page-badge">Espace utilisateur</span>
+            <h1 class="page-title">Ton profil <span class="gradient">ARKOS</span></h1>
+            <p class="page-subtitle">Cette page prépare l'affichage du profil, des notifications, des connexions Discord et des données Minecraft synchronisées.</p>
+        </div>
+    </section>
+    <main class="main-content">
+        <section class="page-section pt-0">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="info-card h-100">
+                            <div class="card-icon"><i class="bi bi-person-circle"></i></div>
+                            <h2 class="section-title">Mon profil</h2>
+                            <p class="section-description">Pseudo, email, future liaison Discord, UUID Minecraft, 2FA et préférences de compte.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="info-card h-100">
+                            <div class="card-icon"><i class="bi bi-bell"></i></div>
+                            <h2 class="section-title">Notifications</h2>
+                            <p class="section-description">Votes crédités, achats boutique, réponses aux tickets et annonces de maintenance.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="info-card h-100">
+                            <div class="card-icon"><i class="bi bi-shield-lock"></i></div>
+                            <h2 class="section-title">Sécurité</h2>
+                            <p class="section-description">Sessions persistantes, journal d'activité et extensions futures vers passkeys et 2FA.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<footer class="site-footer"></footer>
+</body>
+</html>

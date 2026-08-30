@@ -4,224 +4,98 @@ function toggleStep(step) {
     });
 
     const current = document.querySelector('[data-vote-step="' + step + '"]');
-    if (current) {
-        current.classList.remove('d-none');
-    }
+    if (current) current.classList.remove('d-none');
 }
 
 function clearVoteAlert() {
-    document.getElementById('status-message').innerHTML = '';
+    const host = document.getElementById('status-message');
+    if (host) host.innerHTML = '';
 }
 
 function displayVoteAlert(message, level) {
-    document.getElementById('status-message').innerHTML = '<div class="alert alert-' + level + '" role="alert">' + message + '</div>';
+    if (window.createAlert) window.createAlert(level, message, true);
 }
 
-function catchVoteError(error) {
-    if (error.response && error.response.data && error.response.data.message) {
-        displayVoteAlert(error.response.data.message, 'danger');
-        return;
-    }
-
-    console.error(error);
-
-    displayVoteAlert(error.toString(), 'danger');
+function voteStorageKey(user, siteId) {
+    return 'arkos-vote:' + user.toLowerCase() + ':' + siteId;
 }
 
-function getTimeDifference(date) {
-    const difference = date - new Date().getTime();
+function getTimeDifference(timestamp) {
+    const difference = Math.max(0, timestamp - Date.now());
     const hours = Math.floor(difference / (1000 * 60 * 60));
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    return (hours < 10 ? '0' : '') + hours
-        + ':' + (minutes < 10 ? '0' : '') + minutes
-        + ':' + (seconds < 10 ? '0' : '') + seconds;
+    return (hours < 10 ? '0' : '') + hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
 
 function updateVoteLink(link) {
-    const nextVoteTime = link.dataset['voteTime'];
+    const voteTime = parseInt(link.dataset.voteTime || '0', 10);
+    const timer = link.querySelector('.vote-timer');
 
-    if (!nextVoteTime) {
-        return;
-    }
+    if (!voteTime || !timer) return;
 
-    if (nextVoteTime > Date.now()) {
-        link.querySelector('.vote-timer').innerText = getTimeDifference(nextVoteTime);
+    if (voteTime > Date.now()) {
+        link.classList.add('disabled');
+        timer.innerText = getTimeDifference(voteTime);
     } else {
         link.classList.remove('disabled');
-        link.querySelector('.vote-timer').innerText = '';
+        timer.innerText = 'Disponible';
         link.removeAttribute('data-vote-time');
     }
 }
 
-const voteDoneCallbacks = [];
-
 function initVote() {
+    if (!window.username) return;
+
     document.querySelectorAll('[data-vote-url]').forEach(function (el) {
-        const voteTime = el.dataset['voteTime'];
-        const url = el.getAttribute('href');
+        const siteId = el.dataset.voteId;
+        const cooldown = parseInt(el.dataset.cooldownMinutes || '0', 10) * 60 * 1000;
+        const saved = parseInt(localStorage.getItem(voteStorageKey(window.username, siteId)) || '0', 10);
 
-        if (voteTime && voteTime > Date.now()) {
-            el.classList.add('disabled');
-            updateVoteLink(el);
-
-            const timer = setInterval(function () {
-                updateVoteLink(el);
-            }, 1000);
-
-            voteDoneCallbacks.push(function () {
-                clearInterval(timer);
-            })
+        if (saved && saved > Date.now()) {
+            el.dataset.voteTime = saved;
         }
 
-        if (url.includes('{player}')) {
-            el.setAttribute('href', url.replace('{player}', window.username));
-        }
+        updateVoteLink(el);
+        const interval = setInterval(function () { updateVoteLink(el); }, 1000);
 
-        const clickListener = function (ev) {
-            const middleClickCode = 1;
-            if (ev.type === 'auxclick' && ev.button !== middleClickCode) {
-                return;
-            }
-
-            if ((voteTime && voteTime > Date.now()) || el.classList.contains('disabled')) {
+        el.addEventListener('click', function (ev) {
+            if (el.classList.contains('disabled')) {
                 ev.preventDefault();
                 return;
             }
 
             clearVoteAlert();
+            const until = Date.now() + cooldown;
+            localStorage.setItem(voteStorageKey(window.username, siteId), String(until));
+            el.dataset.voteTime = until;
+            updateVoteLink(el);
 
-            el.classList.add('disabled');
-            document.getElementById('vote-card').classList.add('voting');
-
-            refreshVote(el.dataset['voteUrl']);
-        };
-
-        el.addEventListener('click', clickListener);
-        el.addEventListener('auxclick', clickListener);
-
-        voteDoneCallbacks.push(function () {
-            el.removeEventListener('click', clickListener);
-            el.removeEventListener('auxclick', clickListener);
-        })
-    });
-}
-
-function setupVoteTimers(name) {
-    const loaderIcon = voteNameForm.querySelector('.load-spinner');
-
-    if (loaderIcon) {
-        loaderIcon.classList.remove('d-none');
-    }
-
-    axios.get(voteNameForm.action + '/' + name)
-        .then(function (response) {
-            toggleStep(2);
-
-            const sites = response.data.sites;
-            window.username = name;
-
-            for (let id in sites) {
-                const el = document.querySelector('[data-vote-id="' + id + '"]');
-
-                if (el && sites[id]) {
-                    el.classList.remove('disabled');
-                    el.setAttribute('data-vote-time', sites[id]);
-                }
-            }
-
-            initVote();
-        })
-        .catch(function (error) {
-            catchVoteError(error);
-        })
-        .finally(function () {
-            if (loaderIcon) {
-                loaderIcon.classList.add('d-none');
-            }
+            setTimeout(function () {
+                displayVoteAlert('Vote enregistré en mode démo. Relie ensuite ton backend ARKOS pour créditer automatiquement les récompenses en jeu.', 'success');
+            }, 1200);
         });
+
+        el.dataset.bound = 'true';
+        window.addEventListener('beforeunload', function () { clearInterval(interval); }, { once: true });
+    });
 }
 
 const voteNameForm = document.getElementById('voteNameForm');
-
 if (voteNameForm) {
     voteNameForm.addEventListener('submit', function (ev) {
         ev.preventDefault();
-
-        let tempUsername = document.getElementById('stepNameInput').value;
-
         clearVoteAlert();
-
-        setupVoteTimers(tempUsername);
+        const usernameInput = document.getElementById('stepNameInput');
+        const tempUsername = usernameInput ? usernameInput.value.trim() : '';
+        if (!tempUsername) {
+            displayVoteAlert('Entre ton pseudo Minecraft pour continuer.', 'warning');
+            return;
+        }
+        window.username = tempUsername;
+        toggleStep(2);
+        initVote();
     });
-}
-
-function refreshVote(url) {
-    setTimeout(function () {
-        axios.post(url + '/done', {
-            user: window.username,
-        }).then(function (response) {
-            if (response.data.status === 'pending') {
-                refreshVote(url);
-                return;
-            }
-
-            document.getElementById('vote-card').classList.remove('voting');
-
-            if (response.data.status === 'select_server') {
-                showServerSelect(url, response.data.servers);
-                return;
-            }
-
-            rewardDelivered(response.data.message);
-        }).catch(function (error) {
-            document.getElementById('vote-card').classList.remove('voting');
-
-            catchVoteError(error);
-        });
-    }, 5000);
-}
-
-function rewardDelivered(message) {
-    displayVoteAlert(message, 'success');
-
-    voteDoneCallbacks.forEach(function (callback) {
-        callback();
-    });
-
-    setupVoteTimers(window.username);
-}
-
-function showServerSelect(baseURL, servers) {
-    const serverSelect = document.getElementById('server-select');
-
-    Object.entries(servers).forEach(function ([serverId, serverName]) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'btn btn-primary';
-        button.innerText = serverName;
-
-        button.addEventListener('click', function () {
-            document.getElementById('vote-card').classList.add('voting');
-
-            axios.post(baseURL + '/done', {
-                user: window.username,
-                server: serverId,
-            }).then(function (response) {
-                rewardDelivered(response.data.message);
-                serverSelect.innerHTML = '';
-            }).catch(function (error) {
-                catchVoteError(error);
-            }).finally(function () {
-                document.getElementById('vote-card').classList.remove('voting');
-            });
-        });
-
-        serverSelect.appendChild(button);
-    })
-
-    toggleStep('server')
 }
 
 if (window.username) {

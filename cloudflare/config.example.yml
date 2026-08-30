@@ -1,0 +1,7 @@
+tunnel: TON_TUNNEL_ID
+credentials-file: /etc/cloudflared/TON_TUNNEL_ID.json
+
+ingress:
+  - hostname: arkos.example.com
+    service: http://frontend:80
+  - service: http_status:404

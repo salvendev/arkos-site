@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!-- Mirrored from swaynight.fr/rankings/ajlb_mycommand_replacer_jetonsafk?page=7 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 19:31:32 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SwayNight • Serveur minecraft français Oneblock acceptant les versions cracks, premiums et bedrock • Play.swaynight.fr - 1.21.8">
+    <meta name="theme-color" content="#f0b000">
+    <meta name="author" content="Azuriom">
+
+    <meta property="og:title" content="Jetons AFK">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="ajlb_mycommand_replacer_jetonsafk.html">
+    <meta property="og:image" content="../storage/img/icone.png">
+    <meta property="og:description" content="SwayNight • Serveur minecraft français Oneblock acceptant les versions cracks, premiums et bedrock • Play.swaynight.fr - 1.21.8">
+    <meta property="og:site_name" content="SwayNight">
+    
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="QDeztISIv6u7keKBiYbjcMYXkXt7FNd2580cKQ3j">
+
+    <title>Jetons AFK | SwayNight</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../storage/img/icone.png">
+
+    <!-- Scripts -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js?v1.2.9" defer></script>
+    <script src="../assets/vendor/axios/axios.min19c1.js?v1.2.9" defer></script>
+    <script src="../assets/js/script19c1.js?v1.2.9" defer></script>
+    <script src="../assets/themes/rune/js/app19c1.js?v1.2.9" defer></script>
+
+    <!-- Page level scripts -->
+    
+    <!-- Fonts -->
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons19c1.css?v1.2.9" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min19c1.css?v1.2.9" rel="stylesheet">
+    <link href="../assets/css/base19c1.css?v1.2.9" rel="stylesheet">
+    <link href="../assets/themes/rune/css/style19c1.css?v1.2.9" rel="stylesheet">
+    <style>
+    .rankings-table-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+
+    .rankings-navigation {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-tertiary);
+        border-radius: 8px;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+        background: var(--bg-hover);
+        border-color: var(--border-hover);
+        color: var(--primary-orange);
+        transform: translateX(-3px);
+    }
+
+    .rankings-table-header .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .table-description {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0;
+    }
+
+    .rankings-controls {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-secondary);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-label {
+        color: var(--text-primary);
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        display: block;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .custom-select,
+    .custom-input {
+        background: var(--bg-card);
+        border: 1px solid var(--border-tertiary);
+        border-radius: 8px;
+        color: var(--text-primary);
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .custom-select:focus,
+    .custom-input:focus {
+        background: var(--bg-hover);
+        border-color: var(--border-primary);
+        box-shadow: 0 0 0 0.25rem rgba(240, 176, 0, 0.25);
+        outline: none;
+        color: var(--text-primary);
+    }
+
+    .custom-select option {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    .search-input-group {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-input-group .custom-input {
+        padding-right: 100px;
+    }
+
+    .search-btn,
+    .clear-btn {
+        position: absolute;
+        right: 8px;
+        background: var(--bg-hover);
+        border: 1px solid var(--border-primary);
+        border-radius: 6px;
+        color: var(--primary-orange);
+        padding: 0.5rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+    }
+
+    .clear-btn {
+        right: 50px;
+    }
+
+    .search-btn:hover,
+    .clear-btn:hover {
+        background: var(--bg-hover-strong);
+        border-color: var(--border-server-hover);
+        color: var(--primary-orange-light);
+        transform: scale(1.05);
+    }
+
+    .search-results-info {
+        background: rgba(23, 162, 184, 0.15);
+        border-left: 4px solid #17a2b8;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        color: #d5f4f9;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 500;
+    }
+
+    .search-results-info i {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .rankings-table-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-secondary);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .rankings-table-card:hover {
+        box-shadow: 0 15px 35px var(--shadow-medium);
+        border-color: var(--border-hover);
+    }
+
+    .rankings-table-card .card-body {
+        padding: 2.5rem;
+    }
+
+    .rankings-table-container {
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+
+    .rankings-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 0.5rem;
+        min-width: 600px;
+    }
+
+    .rankings-table thead th {
+        color: var(--primary-orange);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-primary);
+        text-align: left;
+        background: var(--bg-card);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .rank-column {
+        width: 80px;
+        text-align: center !important;
+    }
+
+    .player-column {
+        min-width: 200px;
+    }
+
+    .stats-column {
+        width: 120px;
+        text-align: center !important;
+    }
+
+    .ranking-row {
+        background: var(--bg-card);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-secondary);
+        border-radius: 8px;
+    }
+
+    .ranking-row:hover {
+        background: var(--bg-hover);
+        transform: translateY(-2px);
+        border-color: var(--border-hover);
+        box-shadow: 0 5px 15px var(--shadow-light);
+    }
+
+    .ranking-row td {
+        padding: 1rem;
+        vertical-align: middle;
+        border: none;
+    }
+
+    .top-player-1 {
+        background: rgba(255, 215, 0, 0.1) !important;
+        border-color: rgba(255, 215, 0, 0.3) !important;
+    }
+
+    .top-player-1:hover {
+        background: rgba(255, 215, 0, 0.15) !important;
+        border-color: rgba(255, 215, 0, 0.4) !important;
+    }
+
+    .top-player-2 {
+        background: rgba(192, 192, 192, 0.1) !important;
+        border-color: rgba(192, 192, 192, 0.3) !important;
+    }
+
+    .top-player-2:hover {
+        background: rgba(192, 192, 192, 0.15) !important;
+        border-color: rgba(192, 192, 192, 0.4) !important;
+    }
+
+    .top-player-3 {
+        background: rgba(205, 127, 50, 0.1) !important;
+        border-color: rgba(205, 127, 50, 0.3) !important;
+    }
+
+    .top-player-3:hover {
+        background: rgba(205, 127, 50, 0.15) !important;
+        border-color: rgba(205, 127, 50, 0.4) !important;
+    }
+
+    .rank-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: var(--bg-hover);
+        color: var(--text-primary);
+        border-radius: 50%;
+        font-weight: 700;
+        font-size: 0.9rem;
+        border: 2px solid var(--border-tertiary);
+        transition: all 0.3s ease;
+    }
+
+    .ranking-row:hover .rank-badge {
+        transform: scale(1.1);
+        border-color: var(--border-primary);
+    }
+
+    .rank-1 {
+        background: linear-gradient(45deg, #FFD700, #FFA500) !important;
+        color: var(--text-dark) !important;
+        border-color: rgba(255, 215, 0, 0.5) !important;
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+    }
+
+    .rank-2 {
+        background: linear-gradient(45deg, #C0C0C0, #A0A0A0) !important;
+        color: var(--text-dark) !important;
+        border-color: rgba(192, 192, 192, 0.5) !important;
+        box-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
+    }
+
+    .rank-3 {
+        background: linear-gradient(45deg, #CD7F32, #B8860B) !important;
+        color: var(--text-dark) !important;
+        border-color: rgba(205, 127, 50, 0.5) !important;
+        box-shadow: 0 0 8px rgba(205, 127, 50, 0.3);
+    }
+
+    .player-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .player-avatar img {
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+        border: 2px solid var(--border-tertiary);
+        transition: all 0.3s ease;
+        object-fit: cover;
+    }
+
+    .ranking-row:hover .player-avatar img {
+        border-color: var(--border-primary);
+        transform: scale(1.05);
+    }
+
+    .player-details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .player-username {
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .player-username.unknown {
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    .stats-cell {
+        text-align: center;
+    }
+
+    .stats-number {
+        color: var(--primary-orange);
+        font-size: 1.1rem;
+        font-weight: 700;
+        font-family: 'Courier New', monospace;
+    }
+
+    .rankings-pagination {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .rankings-pagination .pagination {
+        gap: 0.5rem;
+    }
+
+    .rankings-pagination .page-link {
+        background: var(--bg-card);
+        border: 1px solid var(--border-tertiary);
+        color: var(--text-primary);
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .rankings-pagination .page-link:hover {
+        background: var(--bg-hover);
+        border-color: var(--border-primary);
+        color: var(--primary-orange);
+    }
+
+    .rankings-pagination .page-item.active .page-link {
+        background: var(--primary-orange);
+        border-color: var(--primary-orange);
+        color: var(--text-dark);
+    }
+
+    @media (max-width: 991px) {
+        .rankings-navigation {
+            position: static;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .rankings-table-header {
+            text-align: center;
+        }
+
+        .rankings-controls {
+            padding: 1.5rem;
+        }
+
+        .rankings-table-card .card-body {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .rankings-table-header .section-title {
+            font-size: 2rem;
+        }
+
+        .rankings-controls {
+            padding: 1.25rem;
+        }
+
+        .rankings-table thead th,
+        .rankings-table tbody td {
+            padding: 0.75rem 0.5rem;
+        }
+
+        .rank-badge {
+            width: 28px;
+            height: 28px;
+            font-size: 0.8rem;
+        }
+
+        .player-avatar img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .player-username {
+            font-size: 0.9rem;
+        }
+
+        .stats-number {
+            font-size: 1rem;
+        }
+
+        .search-input-group .custom-input {
+            padding-right: 90px;
+        }
+
+        .search-btn,
+        .clear-btn {
+            width: 32px;
+            height: 32px;
+        }
+
+        .clear-btn {
+            right: 42px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .rankings-table-header .section-title {
+            font-size: 1.75rem;
+        }
+
+        .rankings-controls {
+            padding: 1rem;
+        }
+
+        .rankings-table-card .card-body {
+            padding: 1rem;
+        }
+
+        .rankings-table-container {
+            margin: 1rem 0;
+        }
+
+        .back-btn {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+    <style>
+    :root,
+    [data-bs-theme=light] {
+        --bs-primary: #f0b000;
+        --bs-primary-rgb: 240, 176, 0;
+        --bs-primary-text-emphasis: #604600;
+        --bs-primary-bg-subtle: #fcefcc;
+        --bs-primary-border-subtle: #f9df99;
+        --bs-link-hover-color: #c08d00;
+        --bs-link-hover-color-rgb: 192, 141, 0;
+
+        --bs-primary-color-contrast: #000;
+        --bs-btn-primary-hover-bg: #cc9600;
+        --bs-btn-primary-active-bg: #cc9600;
+        --bs-btn-primary-focus-shadow-rgb: 204, 150, 0;
+    }
+
+    [data-bs-theme=dark] {
+        --bs-body-bg: #171717;
+        --bs-body-color: #ffffff;
+        
+        --bs-primary: #f0b000;
+        --bs-primary-rgb: 240, 176, 0;
+        --bs-primary-text-emphasis: #906a00;
+        --bs-primary-bg-subtle: #302300;
+        --bs-primary-border-subtle: #f6d066;
+        
+        --bs-link-color: #f6d066;
+        --bs-link-hover-color: #f3c033;
+        --bs-link-color-rgb: 246, 208, 102;
+        --bs-link-hover-color-rgb: 243, 192, 51;
+        
+        --bs-border-color: rgba(255, 255, 255, 0.1);
+        --bs-border-color-translucent: rgba(255, 255, 255, 0.1);
+        
+        --bs-form-control-bg: #0a0a0b;
+        --bs-form-control-border-color: rgba(255, 255, 255, 0.1);
+        --bs-form-control-focus-bg: #0a0a0b;
+        --bs-form-control-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
+        --bs-form-control-disabled-bg: #0a0a0b;
+        --bs-form-control-disabled-border-color: rgba(255, 255, 255, 0.1);
+        
+        --bs-form-check-bg: #0a0a0b;
+        --bs-form-check-border-color: rgba(255, 255, 255, 0.1);
+        --bs-form-check-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
+        
+        --bs-form-switch-bg: rgba(255, 255, 255, 0.1);
+        --bs-form-switch-focus-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#f0b000'/%3e%3c/svg%3e");
+        --bs-form-switch-checked-color: #171717;
+        --bs-form-switch-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
+        --bs-form-switch-checked-border-color: #f0b000;
+        
+        --bs-input-group-addon-bg: #0a0a0b;
+        --bs-input-group-addon-border-color: rgba(255, 255, 255, 0.1);
+        
+        --bs-form-select-bg: #0a0a0b;
+        --bs-form-select-border-color: rgba(255, 255, 255, 0.1);
+        --bs-form-select-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
+        --bs-form-select-disabled-bg: #0a0a0b;
+        --bs-form-select-disabled-border-color: rgba(255, 255, 255, 0.1);
+        --bs-form-select-indicator-color: rgba(255, 255, 255, 0.5);
+        
+        --bs-nav-tabs-border-color: rgba(255, 255, 255, 0.1);
+        --bs-nav-tabs-link-active-bg: #0a0a0b;
+        --bs-nav-tabs-link-active-border-color: rgba(255, 255, 255, 0.1);
+        --bs-nav-tabs-link-hover-border-color: rgba(255, 255, 255, 0.1);
+        --bs-nav-tabs-link-focus-border-color: rgba(255, 255, 255, 0.1);
+        --bs-nav-tabs-link-disabled-color: rgba(255, 255, 255, 0.5);
+        --bs-nav-tabs-link-disabled-border-color: rgba(255, 255, 255, 0.1);
+        
+        --bs-nav-pills-link-active-color: #171717;
+        
+        --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+        --bs-navbar-toggler-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
+        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        --bs-navbar-toggler-hover-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#f0b000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        
+        --bs-dropdown-bg: #0a0a0b;
+        --bs-dropdown-border-color: rgba(255, 255, 255, 0.1);
+        --bs-dropdown-link-active-color: #171717;
+        --bs-dropdown-link-hover-bg: 240, 176, 0, 0.1;
+        --bs-dropdown-link-focus-hover-bg: 240, 176, 0, 0.1;
+        --bs-dropdown-link-disabled-color: rgba(255, 255, 255, 0.5);
+        --bs-dropdown-header-color: rgba(255, 255, 255, 0.5);
+        --bs-dropdown-divider-bg: rgba(255, 255, 255, 0.1);
+        --bs-dropdown-divider-border-color: rgba(255, 255, 255, 0.1);
+        --bs-dropdown-spacer-bg: rgba(255, 255, 255, 0.1);
+        
+        --bs-dropdown-dark-color: #ffffff;
+        --bs-dropdown-dark-bg: #0a0a0b;
+        --bs-dropdown-dark-border-color: rgba(255, 255, 255, 0.1);
+        --bs-dropdown-dark-divider-bg: rgba(255, 255, 255, 0.1);
+        --bs-dropdown-dark-link-color: #ffffff;
+        --bs-dropdown-dark-link-hover-bg: 240, 176, 0, 0.1;
+        --bs-dropdown-dark-link-active-color: #171717;
+        --bs-dropdown-dark-link-disabled-color: rgba(255, 255, 255, 0.5);
+        --bs-dropdown-dark-header-color: rgba(255, 255, 255, 0.5);
+        
+        --bs-btn-primary-hover-bg: #cc9600;
+        --bs-btn-primary-active-bg: #cc9600;
+        --bs-btn-primary-focus-shadow-rgb: 204, 150, 0;
+    }
+</style>
+
+    <style>
+        :root {
+            --primary-orange: #f0b000;
+            --primary-orange-light: #ffb73d;
+            --primary-orange-dark: #d49c00;
+            
+            --bg-hover: rgba(240, 176, 0, 0.1);
+            --bg-hover-strong: rgba(240, 176, 0, 0.15);
+            --bg-hover-weak: rgba(240, 176, 0, 0.05);
+            
+            --border-primary: rgba(240, 176, 0, 0.3);
+            --border-hover: rgba(240, 176, 0, 0.2);
+            --border-avatar: rgba(240, 176, 0, 0.5);
+            --border-server-hover: rgba(240, 176, 0, 0.6);
+            --border-footer: rgba(240, 176, 0, 0.15);
+            --border-footer-link: rgba(240, 176, 0, 0.1);
+            --border-strong: rgba(240, 176, 0, 0.4);
+            
+            --shadow-orange: rgba(240, 176, 0, 0.3);
+            --shadow-orange-light: rgba(240, 176, 0, 0.2);
+            --shadow-orange-heavy: rgba(240, 176, 0, 0.4);
+            --shadow-footer: rgba(240, 176, 0, 0.05);
+            
+            --bg-footer-glow-1: rgba(240, 176, 0, 0.08);
+            --bg-footer-glow-2: rgba(240, 176, 0, 0.05);
+            --bg-footer-glow-3: rgba(255, 183, 61, 0.03);
+            --bg-footer-gradient-1: rgba(240, 176, 0, 0.05);
+            --bg-footer-gradient-2: rgba(255, 183, 61, 0.03);
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+<div id="app">
+    <header>
+        <style>
+    /* ========================================
+       SYSTÈME D'ALERTES ULTRA-ANIMÉES
+       ======================================== */
+    
+    :root {
+        --alert-height: 0px;
+    }
+    
+    /* ========================================
+       BANNIÈRE D'URGENCE (ROUGE) - Format 2 lignes
+       ======================================== */
+    
+    .alert-urgent {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 
+            0 4px 30px rgba(220, 38, 38, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            0 0 50px rgba(220, 38, 38, 0.3);
+        animation: slideDownShake 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55), alertPulse 3s ease-in-out 0.7s infinite;
+        overflow: hidden;
+    }
+    
+    /* Effet d'alerte qui pulse sur fond */
+    .alert-urgent::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        animation: rotate 10s linear infinite;
+    }
+    
+    /* Effet shimmer rapide qui traverse */
+    .alert-urgent::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        animation: shimmerFast 2s infinite;
+    }
+    
+    /* ========================================
+       BANNIÈRE NORMALE (VERT) - Format 2 lignes
+       ======================================== */
+    
+    .alert-success {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 
+            0 4px 30px rgba(16, 185, 129, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        animation: slideDownBounce 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        overflow: hidden;
+    }
+    
+    /* Effet shimmer élégant qui traverse */
+    .alert-success::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+        );
+        animation: shimmer 3s infinite;
+    }
+    
+    .alert-banner__container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 8px 24px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    /* ========================================
+       LIGNE 1 : Badge + Date + Actions
+       ======================================== */
+    
+    .alert-banner__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 6px;
+    }
+    
+    .alert-banner__left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    /* Badge avec pulse */
+    .alert-banner__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        animation: badgePulse 2s ease-in-out infinite;
+    }
+    
+    .alert-banner__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 
+            0 0 0 0 rgba(255, 255, 255, 0.7),
+            0 0 10px rgba(255, 255, 255, 0.5);
+        animation: dotPulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* Date */
+    .alert-banner__date {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+    }
+    
+    .alert-banner__date i {
+        font-size: 12px;
+    }
+    
+    /* Actions */
+    .alert-banner__actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .alert-banner__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        backdrop-filter: blur(8px);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .alert-banner__btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .alert-banner__btn:hover::before {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .alert-banner__btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .alert-banner__btn i {
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .alert-banner__btn span {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .alert-banner__close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 15px;
+        backdrop-filter: blur(8px);
+    }
+    
+    .alert-banner__close:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: rotate(90deg) scale(1.1);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    /* ========================================
+       LIGNE 2 : Icône + Message
+       ======================================== */
+    
+    .alert-banner__bottom {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .alert-banner__icon {
+        font-size: 24px;
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        animation: iconBounce 1s ease-in-out infinite;
+    }
+    
+    .alert-urgent .alert-banner__icon {
+        animation: iconShake 0.5s ease-in-out infinite;
+    }
+    
+    .alert-banner__message {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        animation: textSlide 0.8s ease;
+    }
+    
+    .alert-banner__message strong {
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        animation: textGlow 2s ease-in-out infinite;
+    }
+    
+    /* ========================================
+       ANIMATIONS ULTRA-ATTRACTIVES
+       ======================================== */
+    
+    @keyframes slideDownShake {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        60% {
+            transform: translateY(6px);
+            opacity: 1;
+        }
+        75% {
+            transform: translateY(-3px);
+        }
+        85% {
+            transform: translateY(2px);
+        }
+        95% {
+            transform: translateY(-1px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideDownBounce {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        60% {
+            transform: translateY(5px);
+            opacity: 1;
+        }
+        80% {
+            transform: translateY(-2px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes alertPulse {
+        0%, 100% {
+            box-shadow: 
+                0 4px 30px rgba(220, 38, 38, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                0 0 50px rgba(220, 38, 38, 0.3);
+        }
+        50% {
+            box-shadow: 
+                0 4px 40px rgba(220, 38, 38, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 70px rgba(220, 38, 38, 0.5);
+        }
+    }
+    
+    @keyframes dotPulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 
+                0 0 0 0 rgba(255, 255, 255, 0.7),
+                0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+            transform: scale(1.3);
+            opacity: 0.8;
+            box-shadow: 
+                0 0 0 6px rgba(255, 255, 255, 0),
+                0 0 20px rgba(255, 255, 255, 0.8);
+        }
+    }
+    
+    @keyframes badgePulse {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+        }
+        50% {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
+        }
+    }
+    
+    @keyframes iconShake {
+        0%, 100% { transform: translateX(0) rotate(0deg); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) rotate(-5deg); }
+        20%, 40%, 60%, 80% { transform: translateX(2px) rotate(5deg); }
+    }
+    
+    @keyframes iconBounce {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-4px) scale(1.05);
+        }
+    }
+    
+    @keyframes textSlide {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes textGlow {
+        0%, 100% {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
+        }
+    }
+    
+    @keyframes shimmer {
+        0% {
+            left: -100%;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+    
+    @keyframes shimmerFast {
+        0% {
+            left: -100%;
+        }
+        100% {
+            left: 100%;
+        }
+    }
+    
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    
+    @media (max-width: 768px) {
+        .alert-banner__container {
+            padding: 8px 16px;
+        }
+        
+        .alert-banner__top {
+            flex-wrap: wrap;
+        }
+        
+        .alert-banner__badge {
+            font-size: 9px;
+            padding: 4px 10px;
+        }
+        
+        .alert-banner__date {
+            font-size: 10px;
+            padding: 3px 8px;
+        }
+        
+        .alert-banner__btn span {
+            display: none;
+        }
+        
+        .alert-banner__icon {
+            font-size: 20px;
+        }
+        
+        .alert-banner__message {
+            font-size: 13px;
+        }
+    }
+    
+    /* Ajustement de la navbar */
+    .navbar.fixed-top {
+        transition: top 0.3s ease;
+    }
+    
+    body.has-alert .navbar.fixed-top {
+        top: var(--alert-height);
+    }
+</style>
+
+
+
+
+
+
+
+<script>
+    function closeAlert(type) {
+        const banner = document.getElementById('alert-banner-' + type);
+        if (banner) {
+            banner.style.animation = 'slideDownBounce 0.3s cubic-bezier(0.16, 1, 0.3, 1) reverse';
+            setTimeout(() => {
+                banner.style.display = 'none';
+                document.body.classList.remove('has-alert');
+                document.querySelector('.navbar.fixed-top').style.top = '0';
+            }, 300);
+        }
+    }
+</script>
+
+<nav class="navbar navbar-expand-lg storycraft-nav fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Afficher/Masquer la navbar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto nav-menu">
+                                                            <li class="nav-item">
+                            <a class="nav-link " href="../index.html" >
+                                Accueil
+                            </a>
+                        </li>
+                                                                                <li class="nav-item">
+                            <a class="nav-link " href="../vote.html" >
+                                Voter
+                            </a>
+                        </li>
+                                                                                <li class="nav-item">
+                            <a class="nav-link " href="https://discord.gg/3hB2Rz3pen" >
+                                Discord
+                            </a>
+                        </li>
+                                                                                <li class="nav-item">
+                            <a class="nav-link " href="../index.html"  target="_blank" rel="noopener noreferrer" >
+                                Wiki
+                            </a>
+                        </li>
+                                                                                <li class="nav-item">
+                            <a class="nav-link  active " href="../rankings.html" >
+                                Classements
+                            </a>
+                        </li>
+                                                                                <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Règlements
+                            </a>
+                            <ul class="dropdown-menu nav-submenu">
+                                                                    <li><a class="dropdown-item " href="https://wiki.walyverse.fr/informations/reglement-en-jeu" >
+                                        En jeu
+                                    </a></li>
+                                                                    <li><a class="dropdown-item " href="https://wiki.walyverse.fr/informations/reglement-discord" >
+                                        Discord
+                                    </a></li>
+                                                            </ul>
+                        </li>
+                                                </ul>
+            
+            <div class="nav-actions d-flex align-items: gap-2">
+                                
+                                    <a href="https://walyverse.fr/#nouvelle-boutique" class="nav-btn nav-btn--shop">
+                        <i class="bi bi-bag"></i>
+                        <span class="btn-text d-none d-lg-inline">Boutique</span>
+                    </a>
+                                
+                                    <a href="../user/login.html" class="nav-btn nav-btn--user">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span class="btn-text d-none d-lg-inline">Connexion</span>
+                    </a>
+                                            <a href="../user/register.html" class="nav-btn nav-btn--user">
+                            <i class="bi bi-person-plus"></i>
+                            <span class="btn-text d-none d-lg-inline">Inscription</span>
+                        </a>
+                                                </div>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-section">
+    <div class="hero-background">
+        <img src="../storage/img/fond.png" alt="Background" class="hero-bg">
+        <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+        <div class="container text-center">
+            <div class="hero-logo">
+                <img src="../storage/img/logo2.png" alt="SwayNight" class="logo-image">
+            </div>
+            <div class="players-online">
+                <i class="bi bi-people-fill"></i>
+                                    <span><span class="player-number">92</span> joueurs connectés</span>
+                            </div>
+            
+            <div class="hero-actions mt-3">
+                                    <button class="nav-btn nav-btn--shop" 
+                            id="copy-ip-btn" 
+                            data-ip="play.swaynight.fr"
+                            data-copied="IP copiée !"
+                            data-copy-error="Erreur de copie">
+                        <i class="bi bi-clipboard"></i>
+                        <span class="btn-text">play.swaynight.fr</span>
+                    </button>
+                                
+                <button class="nav-btn nav-btn--version">
+                    <i class="bi bi-controller"></i>
+                    <span class="btn-text">Version 1.21.8</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <a href="#main-content">
+            <span>Découvrir</span>
+            <i class="bi bi-chevron-down"></i>
+        </a>
+    </div>
+</section>    </header>
+
+        <main class="main-content" id="main-content">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12">
+                    <!-- Rankings Table Header -->
+                    <div class="rankings-table-header mb-4">
+                        <div class="rankings-navigation">
+                            <a href="../rankings.html" class="back-btn">
+                                <i class="bi bi-arrow-left"></i>
+                                <span>Retour à la liste</span>
+                            </a>
+                        </div>
+                        <h1 class="section-title">Jetons AFK</h1>
+                        <p class="table-description">Classement des meilleurs joueurs</p>
+                    </div>
+
+                    <!-- Search and Filters -->
+                    <div class="rankings-controls mb-4">
+                        <div class="row g-3 align-items-end">
+                                                            <div class="col-md-6">
+                                    <form id="periodForm" method="GET" action="https://swaynight.fr/rankings/ajlb_mycommand_replacer_jetonsafk">
+                                                                                <div class="form-group">
+                                            <label for="periodSelect" class="form-label">Période</label>
+                                            <select id="periodSelect" name="period" class="form-select custom-select" onchange="document.getElementById('periodForm').submit()">
+                                                                                                    <option value="all" selected>Tout le temps</option>
+                                                                                                    <option value="hourly" >Dernière heure</option>
+                                                                                                    <option value="daily" >Aujourd&#039;hui</option>
+                                                                                                    <option value="weekly" >Cette semaine</option>
+                                                                                                    <option value="monthly" >Ce mois</option>
+                                                                                                    <option value="yearly" >Cette année</option>
+                                                                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                                        
+                            <div class="col-md-6">
+                                <form method="GET" action="https://swaynight.fr/rankings/ajlb_mycommand_replacer_jetonsafk" class="search-form">
+                                    <input type="hidden" name="period" value="all">
+                                    <div class="form-group">
+                                        <label for="searchInput" class="form-label">Rechercher un joueur...</label>
+                                        <div class="search-input-group">
+                                            <input type="text" id="searchInput" class="form-control custom-input" name="search" placeholder="Rechercher un joueur..." value="">
+                                            <button class="search-btn" type="submit">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                                                                    </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Search Results Info -->
+                    
+                    <!-- Rankings Table -->
+                    <div class="rankings-table-card">
+                        <div class="card-body">
+                                                            <div class="rankings-table-container">
+                                    <table class="rankings-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="rank-column">#</th>
+                                                <th class="player-column">Joueur</th>
+                                                <th class="stats-column">Jetons</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-61">
+                                                            61
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/grillon2/32.png" 
+                                                                         alt="grillon2"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">grillon2</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            162,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-62">
+                                                            62
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/dede/32.png" 
+                                                                         alt="dede"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">dede</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            158,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-63">
+                                                            63
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/ElManLion/32.png" 
+                                                                         alt="ElManLion"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">ElManLion</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            155,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-64">
+                                                            64
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Stitch2_0/32.png" 
+                                                                         alt="Stitch2_0"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Stitch2_0</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            151,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-65">
+                                                            65
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Enraged/32.png" 
+                                                                         alt="Enraged"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Enraged</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            146,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-66">
+                                                            66
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Nica_54/32.png" 
+                                                                         alt="Nica_54"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Nica_54</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            146,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-67">
+                                                            67
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Onepieceoffull/32.png" 
+                                                                         alt="Onepieceoffull"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Onepieceoffull</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            141,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-68">
+                                                            68
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/irocks974/32.png" 
+                                                                         alt="irocks974"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">irocks974</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            139,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-69">
+                                                            69
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Nanatchy23_/32.png" 
+                                                                         alt="Nanatchy23_"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Nanatchy23_</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            135,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                            <tr class="ranking-row ">
+                                                    <td class="rank-cell">
+                                                        <div class="rank-badge rank-70">
+                                                            70
+                                                        </div>
+                                                    </td>
+                                                    <td class="player-cell">
+                                                        <div class="player-info">
+                                                                                                                            <div class="player-avatar">
+                                                                    <img src="../../mc-heads.net/avatar/Shadeus_/32.png" 
+                                                                         alt="Shadeus_"
+                                                                         onerror="this.src='../../mc-heads.net/avatar/steve/32.png'">
+                                                                </div>
+                                                                <div class="player-details">
+                                                                    <span class="player-username">Shadeus_</span>
+                                                                </div>
+                                                                                                                    </div>
+                                                    </td>
+                                                    <td class="stats-cell">
+                                                        <span class="stats-number">
+                                                                                                                            134,00
+                                                                                                                    </span>
+                                                    </td>
+                                                </tr>
+                                                                                    </tbody>
+                                    </table>
+                                </div>
+                                                        
+                            <!-- Pagination -->
+                            <div class="rankings-pagination">
+                                <nav>
+        <ul class="pagination">
+            
+                            <li class="page-item">
+                    <a class="page-link" href="ajlb_mycommand_replacer_jetonsafkc575.html?page=6" rel="prev" aria-label="&laquo; Précédent">&lsaquo;</a>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk2679.html?page=1">1</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk4658.html?page=2">2</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk9ba9.html?page=3">3</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafkfdb0.html?page=4">4</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafkaf4d.html?page=5">5</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafkc575.html?page=6">6</a></li>
+                                                                                                <li class="page-item active" aria-current="page"><span class="page-link">7</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafkfdfa.html?page=8">8</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk0b08.html?page=9">9</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk1448.html?page=10">10</a></li>
+                                                                                        
+                                    <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+                
+                
+                                            
+                
+                
+                                                                                        <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafk2459.html?page=27">27</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="ajlb_mycommand_replacer_jetonsafke459.html?page=28">28</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="ajlb_mycommand_replacer_jetonsafkfdfa.html?page=8" rel="next" aria-label="Suivant &raquo;">&rsaquo;</a>
+                </li>
+                    </ul>
+    </nav>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row g-4">
+                                            <div class="col-lg-3 col-md-6">
+                                                            <h4 class="footer-title">SwayNight</h4>
+                                <p class="footer-description">
+                                    Tu crois connaître le Oneblock ? SwayNight te fait revoir les bases : Grades à farmer, classes, compétences, mobcoins, pêche revisitée etc... Chaque bloc peut t&#039;emmener très loin. Et si tu tenais enfin le serveur qui te rendra accro ?
+                                </p>
+                            
+                                                    </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                            <h4 class="footer-title">Navigation</h4>
+                                <ul class="footer-links">
+                                                                            <li><a href="../index.html">Accueil</a></li>
+                                                                            <li><a href="https://discord.gg/3hB2Rz3pen">Actualités</a></li>
+                                                                            <li><a href="https://astralya.fr/">Serveur Survie</a></li>
+                                                                    </ul>
+                            
+                                                    </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                            <h4 class="footer-title">En savoir plus...</h4>
+                                <ul class="footer-links">
+                                                                            <li><a href="https://walyverse.fr/">Walyverse</a></li>
+                                                                            <li><a href="https://wiki.walyverse.fr/">Wiki</a></li>
+                                                                            <li><a href="http://www.serveurs-minecraft.org/">Serveur Minecraft</a></li>
+                                                                    </ul>
+                            
+                                                    </div>
+                                            <div class="col-lg-3 col-md-6">
+                                                            <h4 class="footer-title">Vote</h4>
+                                <p class="footer-description">
+                                    Soutiens SwayNight en votant quotidiennement pour gagner des récompenses exclusives. 💖
+                                </p>
+                                <a href="../vote.html" class="footer-action-button">
+                                                                            <i class="bi bi-heart"></i>
+                                                                        VOTER
+                                </a>
+                                                    </div>
+                                    </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">
+                        Copyright © 2020 - 2026 SwayNight - Tous droits réservés. Nous ne sommes pas affiliés à Mojang AB ou Microsoft. Contact : <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="42212d2c362321366c35232e3b342730312702252f232b2e6c212d2f">[email&#160;protected]</a>
+                        </p>
+                        <p class="powered-by">
+                            Propulsé par <a href="https://azuriom.com/" target="_blank" class="azuriom-link">Azuriom</a> • Développé par <a href="https://wiregency.com/" target="_blank" class="wiregency-link">WireGency</a>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-bottom-links">
+                                                            <a href="https://walyverse.fr/#cgv">Mentions légales</a>
+                                                            <a href="https://walyverse.fr/#cgv">CGU / CGV</a>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+
+<!-- Mirrored from swaynight.fr/rankings/ajlb_mycommand_replacer_jetonsafk?page=7 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 19:31:33 GMT -->
+</html>

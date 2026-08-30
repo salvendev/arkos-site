@@ -1,0 +1,218 @@
+{
+  "brand": {
+    "name": "ARKOS",
+    "tagline": "L'aventure Minecraft commence ici.",
+    "description": "Un portail premium pour un serveur Minecraft orienté aventure, économie, métiers et communauté.",
+    "footer": "Ton aventure. Ton monde. Ton histoire."
+  },
+  "server": {
+    "ip": "play.arkos.fr",
+    "bedrock_port": "19132",
+    "version": "1.21.8",
+    "status": "ONLINE",
+    "players_online": 128,
+    "players_max": 300,
+    "discord_members": 1842,
+    "uptime": "14j 06h",
+    "cpu": 42,
+    "ram": 68,
+    "storage": 57,
+    "motd": "ARKOS • Économie • Guildes • Quêtes • Monde personnalisé"
+  },
+  "features": [
+    {"icon": "bi-coin", "title": "Économie", "description": "Une économie équilibrée avec monnaies, banques et progression durable."},
+    {"icon": "bi-briefcase", "title": "Métiers", "description": "Développe ton métier, monte en niveau et débloque des bonus exclusifs."},
+    {"icon": "bi-map", "title": "Quêtes", "description": "Des quêtes scénarisées et quotidiennes pour rythmer chaque session."},
+    {"icon": "bi-shield", "title": "Guildes", "description": "Construis une communauté puissante avec des objectifs communs."},
+    {"icon": "bi-shop", "title": "Marché", "description": "Commerce dynamique entre joueurs, village des marchands et économie vivante."},
+    {"icon": "bi-hammer", "title": "Hôtel des ventes", "description": "Vends tes objets rares, enchères tes ressources et surveille les meilleures affaires."},
+    {"icon": "bi-calendar-event", "title": "Événements", "description": "Boss, chasses, concours et animations régulières à grande échelle."},
+    {"icon": "bi-stars", "title": "Cosmétiques", "description": "Particules, titres, familiers et personnalisations sans avantage pay-to-win."},
+    {"icon": "bi-trophy", "title": "Classements", "description": "Compare ta progression sur la richesse, les votes, le temps de jeu et bien plus."},
+    {"icon": "bi-tree", "title": "Monde personnalisé", "description": "Des zones uniques, un univers forestier et un environnement conçu pour l'exploration."}
+  ],
+  "leaderboards": [
+    {"title": "Richesse", "player": "Kael", "value": "12 450 000 ⛃", "link": "rankings/ajlb_vault_eco_balance.html"},
+    {"title": "Temps de jeu", "player": "Mira", "value": "684 h", "link": "rankings/ajlb_statistic_hours_played.html"},
+    {"title": "Votes", "player": "Nyx", "value": "126 votes", "link": "vote.html#top-voters"},
+    {"title": "Niveau", "player": "Orion", "value": "Niveau 87", "link": "rankings/ajlb_mycommand_playerdata_SwayNight_DailyStreak.html"},
+    {"title": "Métier", "player": "Sylve", "value": "Forgeron légendaire", "link": "rankings/ajlb_statistic_traded_with_villager.html"}
+  ],
+  "ranking_categories": [
+    {"icon": "bi-cash-stack", "title": "Richesse", "description": "Les joueurs les plus fortunés du royaume.", "link": "rankings/ajlb_vault_eco_balance.html"},
+    {"icon": "bi-stopwatch", "title": "Temps de jeu", "description": "Les aventuriers les plus assidus.", "link": "rankings/ajlb_statistic_hours_played.html"},
+    {"icon": "bi-heart-fill", "title": "Votes", "description": "Les meilleurs soutiens mensuels du serveur.", "link": "vote.html#top-voters"},
+    {"icon": "bi-compass", "title": "Exploration", "description": "Distance parcourue dans l'univers ARKOS.", "link": "rankings/ajlb_statistic_walk_one_cm.html"},
+    {"icon": "bi-bullseye", "title": "Duels", "description": "Les champions de l'arène PVP.", "link": "rankings/ajlb_duels_wins.html"},
+    {"icon": "bi-journal-check", "title": "Quêtes", "description": "Progression dans les quêtes et objectifs spéciaux.", "link": "rankings/ajlb_cluescrolls_scrolls_completed.html"},
+    {"icon": "bi-gem", "title": "Mithrils", "description": "La monnaie rare des explorateurs avancés.", "link": "rankings/ajlb_ultimatemobcoins_balance_formatted.html"},
+    {"icon": "bi-chat-left-dots", "title": "Animations tchat", "description": "Les collectionneurs d'effets sociaux.", "link": "rankings/ajlb_mycommand_replacer_animtchat.html"}
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "Ouverture de la saison Jungle I",
+      "summary": "Une nouvelle aventure ARKOS débute avec une économie revue, des quêtes inédites et un spawn entièrement retravaillé.",
+      "content": "La saison Jungle I d'ARKOS ouvre ses portes avec un spawn forestier, une progression métiers plus fluide et une nouvelle boucle d'événements hebdomadaires. Les premières semaines seront rythmées par des récompenses de lancement et des défis communautaires.",
+      "image": "storage/posts/vUlnIlAtJUpsPChxnoMO4O6g4uzFscbQgSYdwjzu.png",
+      "category": "Annonce",
+      "author": "ARKOS Team",
+      "date": "2026-08-28"
+    },
+    {
+      "id": 2,
+      "title": "Le quartier des artisans est disponible",
+      "summary": "Marchands, commandes, métiers et économie locale s'ouvrent dans une toute nouvelle zone immersive.",
+      "content": "Le quartier des artisans devient le coeur économique d'ARKOS. Vous y trouverez vos stations de métiers, des contrats spéciaux et une place de marché où les guildes pourront exposer leur savoir-faire.",
+      "image": "storage/img/fond.png",
+      "category": "Mise à jour",
+      "author": "Sylve",
+      "date": "2026-08-24"
+    },
+    {
+      "id": 3,
+      "title": "Préparation du système de maintenance",
+      "summary": "Une bannière de maintenance et des notifications plus claires seront bientôt disponibles côté administration.",
+      "content": "Nous préparons un système de maintenance pilotable depuis l'admin panel afin de prévenir les joueurs avant les redémarrages et patchs critiques.",
+      "image": "storage/img/fond.png",
+      "category": "Roadmap",
+      "author": "Martin",
+      "date": "2026-08-20"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Boss de la Canopée",
+      "description": "Affrontez un boss coopératif dans la jungle et récupérez des reliques rares.",
+      "rewards": "Clé exotique, 25 000 ⛃, cosmétique exclusif",
+      "date": "2026-09-06T20:30:00Z",
+      "status": "À venir"
+    },
+    {
+      "id": 2,
+      "name": "Marché noir nocturne",
+      "description": "Des vendeurs temporaires proposent des objets rares pendant une durée limitée.",
+      "rewards": "Objets spéciaux, matériaux rares, boosts métiers",
+      "date": "2026-09-10T19:00:00Z",
+      "status": "À venir"
+    },
+    {
+      "id": 3,
+      "name": "Tournoi des guildes",
+      "description": "Combattez, capturez des objectifs et dominez le classement communautaire.",
+      "rewards": "Titre de guilde, coffre premium, points de saison",
+      "date": "2026-09-14T18:00:00Z",
+      "status": "Inscriptions ouvertes"
+    }
+  ],
+  "vote_sites": [
+    {
+      "id": 1,
+      "name": "Serveur Privé",
+      "reward": "250 ⛃ + 1 caisse vote",
+      "status": "Disponible",
+      "link": "https://serveur-prive.net/",
+      "cooldown_minutes": 90
+    },
+    {
+      "id": 2,
+      "name": "Serveurs Minecraft",
+      "reward": "500 ⛃ + 2 points boutique",
+      "status": "Disponible",
+      "link": "https://www.serveursminecraft.org/",
+      "cooldown_minutes": 180
+    },
+    {
+      "id": 3,
+      "name": "Serveur-Minecraft.com",
+      "reward": "750 ⛃ + chance de clé rare",
+      "status": "Disponible",
+      "link": "https://serveur-minecraft.com/",
+      "cooldown_minutes": 1440
+    }
+  ],
+  "top_voters": [
+    {"name": "Nyx", "votes": 126, "reward": "1200 ⛃ + titre #TopVoteur"},
+    {"name": "Kael", "votes": 119, "reward": "800 ⛃"},
+    {"name": "Mira", "votes": 115, "reward": "500 ⛃"},
+    {"name": "Sylve", "votes": 108, "reward": "300 ⛃"},
+    {"name": "Orion", "votes": 102, "reward": "100 ⛃"}
+  ],
+  "shop": {
+    "categories": ["Grades", "Clés", "Cosmétiques", "Kits", "Monnaie", "Packs", "Objets spéciaux"],
+    "products": [
+      {"id": 1, "category": "Grades", "name": "VIP", "description": "Grade d'entrée avec avantages de confort et cosmétiques.", "price": 4.99, "discount": 0, "image": "storage/img/icone.png"},
+      {"id": 2, "category": "Grades", "name": "MVP+", "description": "Accès à des bonus supplémentaires, emotes et slots exclusifs.", "price": 14.99, "discount": 10, "image": "storage/img/icone.png"},
+      {"id": 3, "category": "Clés", "name": "Clé exotique", "description": "Ouvre une caisse avec récompenses rares.", "price": 2.49, "discount": 0, "image": "storage/img/icone.png"},
+      {"id": 4, "category": "Cosmétiques", "name": "Pack particules jungle", "description": "Effets lumineux verts et traces végétales.", "price": 5.99, "discount": 15, "image": "storage/img/icone.png"},
+      {"id": 5, "category": "Kits", "name": "Kit explorateur", "description": "Équipement de départ premium pour les expéditions.", "price": 3.99, "discount": 0, "image": "storage/img/icone.png"},
+      {"id": 6, "category": "Packs", "name": "Pack fondateur", "description": "Grade, monnaie, cosmétique et badge exclusif.", "price": 24.99, "discount": 20, "image": "storage/img/icone.png"}
+    ]
+  },
+  "ranks": [
+    {"id": 1, "name": "Joueur", "color": "#F0FDF4", "price": 0, "benefits": "Accès complet au serveur", "permissions": ["play.basic"]},
+    {"id": 2, "name": "VIP", "color": "#86EFAC", "price": 4.99, "benefits": "Cosmétiques, slots supplémentaires", "permissions": ["play.basic", "rank.vip"]},
+    {"id": 3, "name": "VIP+", "color": "#22C55E", "price": 8.99, "benefits": "Boosts métiers et homes avancés", "permissions": ["play.basic", "rank.vipplus"]},
+    {"id": 4, "name": "MVP", "color": "#16A34A", "price": 12.99, "benefits": "Kits exclusifs et tags premium", "permissions": ["play.basic", "rank.mvp"]},
+    {"id": 5, "name": "MVP+", "color": "#4ADE80", "price": 14.99, "benefits": "Avantages de confort supplémentaires", "permissions": ["play.basic", "rank.mvpplus"]},
+    {"id": 6, "name": "Titan", "color": "#A3E635", "price": 19.99, "benefits": "Pack prestige, coffre premium, titre", "permissions": ["play.basic", "rank.titan"]},
+    {"id": 7, "name": "Staff", "color": "#34D399", "price": 0, "benefits": "Outils de modération", "permissions": ["staff.*"]}
+  ],
+  "players": [
+    {"id": 1, "pseudo": "Kael", "uuid": "3f1f1f88-b2a6-4e10-bfd9-5f1d5e000001", "first_connection": "2026-03-02", "last_connection": "2026-08-30 14:10", "playtime": "684 h", "money": 12450000, "votes": 119, "grade": "Titan", "job": "Marchand", "sanctions": "Aucune", "online": true},
+    {"id": 2, "pseudo": "Mira", "uuid": "3f1f1f88-b2a6-4e10-bfd9-5f1d5e000002", "first_connection": "2026-03-06", "last_connection": "2026-08-30 14:22", "playtime": "641 h", "money": 9250000, "votes": 115, "grade": "MVP+", "job": "Exploratrice", "sanctions": "Aucune", "online": true},
+    {"id": 3, "pseudo": "Nyx", "uuid": "3f1f1f88-b2a6-4e10-bfd9-5f1d5e000003", "first_connection": "2026-03-11", "last_connection": "2026-08-30 13:58", "playtime": "599 h", "money": 8110000, "votes": 126, "grade": "VIP+", "job": "Alchimiste", "sanctions": "Mute 1j (expiré)", "online": true},
+    {"id": 4, "pseudo": "Sylve", "uuid": "3f1f1f88-b2a6-4e10-bfd9-5f1d5e000004", "first_connection": "2026-04-01", "last_connection": "2026-08-29 23:12", "playtime": "418 h", "money": 7340000, "votes": 108, "grade": "VIP", "job": "Forgeron", "sanctions": "Aucune", "online": false},
+    {"id": 5, "pseudo": "Orion", "uuid": "3f1f1f88-b2a6-4e10-bfd9-5f1d5e000005", "first_connection": "2026-04-08", "last_connection": "2026-08-30 12:49", "playtime": "387 h", "money": 6890000, "votes": 102, "grade": "Joueur", "job": "Bûcheron", "sanctions": "Aucune", "online": false}
+  ],
+  "tickets": [
+    {"id": 401, "category": "Support", "subject": "Perte d'items après reboot", "status": "Ouvert", "priority": "Haute", "history": 4, "assignee": "Martin", "created_at": "2026-08-30 09:12"},
+    {"id": 402, "category": "Bug", "subject": "Quête forestière bloquée", "status": "En cours", "priority": "Moyenne", "history": 2, "assignee": "Lina", "created_at": "2026-08-30 10:47"},
+    {"id": 403, "category": "Paiement", "subject": "Produit non reçu", "status": "Ouvert", "priority": "Haute", "history": 3, "assignee": "Admin", "created_at": "2026-08-30 11:38"}
+  ],
+  "users": [
+    {"id": 1, "name": "Admin", "email": "admin@arkos.local", "role": "admin", "created_at": "2026-08-20", "last_login": "2026-08-30 14:25"},
+    {"id": 2, "name": "Martin", "email": "martin@arkos.local", "role": "staff", "created_at": "2026-08-21", "last_login": "2026-08-30 13:58"},
+    {"id": 3, "name": "Lina", "email": "lina@arkos.local", "role": "staff", "created_at": "2026-08-22", "last_login": "2026-08-30 12:01"}
+  ],
+  "dashboard": {
+    "connected_players": 128,
+    "total_players": 5821,
+    "registered_players": 4412,
+    "votes_today": 287,
+    "shop_revenue": 1249.5,
+    "tickets_open": 12,
+    "reports": 5,
+    "server_status": "ONLINE",
+    "cpu": 42,
+    "ram": 68,
+    "storage": 57,
+    "uptime": "14j 06h",
+    "charts": {
+      "players": [52, 64, 73, 81, 95, 121, 128],
+      "votes": [11, 24, 39, 33, 45, 61, 72],
+      "users": [4, 7, 10, 6, 11, 14, 17],
+      "revenue": [49, 79, 54, 124, 143, 188, 231],
+      "activity": [31, 48, 43, 58, 76, 82, 90]
+    }
+  },
+  "logs": [
+    {"actor": "Martin", "action": "a démarré le serveur", "time": "16:42"},
+    {"actor": "Admin", "action": "a modifié le grade VIP", "time": "16:45"},
+    {"actor": "Admin", "action": "a banni Player123", "time": "16:51"},
+    {"actor": "Lina", "action": "a publié une actualité", "time": "17:03"},
+    {"actor": "Admin", "action": "a ajouté le produit Pack fondateur", "time": "17:14"}
+  ],
+  "notifications": [
+    {"message": "Serveur démarré", "level": "success"},
+    {"message": "Actualité publiée", "level": "info"},
+    {"message": "Nouveau ticket", "level": "warning"}
+  ],
+  "socials": [
+    {"name": "Discord", "icon": "bi-discord", "url": "https://discord.gg/arkos"},
+    {"name": "YouTube", "icon": "bi-youtube", "url": "youtube.html"},
+    {"name": "TikTok", "icon": "bi-tiktok", "url": "#"},
+    {"name": "Instagram", "icon": "bi-instagram", "url": "#"}
+  ]
+}
