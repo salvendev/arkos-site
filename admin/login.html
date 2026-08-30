@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ARKOS ADMIN PANEL">
+    <meta name="theme-color" content="#07110B">
+    <title>ARKOS ADMIN — Connexion</title>
+    <link rel="shortcut icon" href="../storage/img/icone.png">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons19c1.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min19c1.css" rel="stylesheet">
+    <link href="../assets/css/base19c1.css" rel="stylesheet">
+    <link href="../assets/themes/rune/css/style19c1.css" rel="stylesheet">
+    <link href="../assets/themes/rune/css/admin19c1.css" rel="stylesheet">
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js" defer></script>
+    <script src="../assets/vendor/axios/axios.min19c1.js" defer></script>
+    <script src="../assets/js/script19c1.js" defer></script>
+    <script src="../assets/themes/rune/js/app19c1.js" defer></script>
+    <script src="../assets/themes/rune/js/admin19c1.js" defer></script>
+</head>
+<body class="admin-body" data-bs-theme="dark" data-admin-page="login">
+
+<div class="lock-screen">
+    <div class="lock-card">
+        <span class="page-badge">Accès administrateur</span>
+        <h1>ARKOS ADMIN</h1>
+        <p>Connexion réservée aux administrateurs. Le panneau n'est jamais exposé aux utilisateurs normaux.</p>
+        <form id="adminAuthForm" class="mt-4">
+            <div class="mb-3">
+                <label class="form-label" for="email">Email administrateur</label>
+                <input class="form-control" id="email" type="email" name="email" placeholder="admin@arkos.local" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label" for="password">Mot de passe</label>
+                <input class="form-control" id="password" type="password" name="password" placeholder="••••••••" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="admin-btn primary" type="submit">Connexion</button>
+                <a class="admin-btn" href="../index.html">Retour au site</a>
+            </div>
+            <p class="text-muted small mt-3 mb-0">Compte admin seed du backend : admin@arkos.local</p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arkos-frontend
+    depends_on:
+      - backend
+    ports:
+      - "${ARKOS_HTTP_PORT:-8080}:80"
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: arkos-backend
+    environment:
+      PORT: 5000
+      FLASK_SECRET_KEY: ${FLASK_SECRET_KEY:-change-me-secret-key}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-arkosadmin}
+      BRIDGE_TOKEN: ${BRIDGE_TOKEN:-change-me-bridge-token}
+      DB_PATH: /var/lib/arkos/arkos.sqlite3
+      RCON_HOST: ${RCON_HOST:-}
+      RCON_PORT: ${RCON_PORT:-25575}
+      RCON_PASSWORD: ${RCON_PASSWORD:-}
+      MINECRAFT_COMMAND_WRAPPER: ${MINECRAFT_COMMAND_WRAPPER:-}
+    volumes:
+      - arkos_data:/var/lib/arkos
+    ports:
+      - "${ARKOS_API_PORT:-5000}:5000"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: arkos-postgres
+    profiles: ["postgres"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-arkos}
+      POSTGRES_USER: ${POSTGRES_USER:-arkos}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-arkos-change-me}
+    volumes:
+      - arkos_postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: arkos-cloudflared
+    profiles: ["tunnel"]
+    depends_on:
+      - frontend
+    command: tunnel run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:-}
+    restart: unless-stopped
+
+volumes:
+  arkos_data:
+  arkos_postgres:

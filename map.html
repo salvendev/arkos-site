@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Carte ARKOS et préparation de l'intégration BlueMap / Dynmap.">
+    <meta name="theme-color" content="#07110B">
+    <title>ARKOS — Carte</title>
+    <link rel="shortcut icon" href="storage/img/icone.png">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons19c1.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min19c1.css" rel="stylesheet">
+    <link href="assets/css/base19c1.css" rel="stylesheet">
+    <link href="assets/themes/rune/css/style19c1.css" rel="stylesheet">
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js" defer></script>
+    <script src="assets/vendor/axios/axios.min19c1.js" defer></script>
+    <script src="assets/js/script19c1.js" defer></script>
+    <script src="assets/themes/rune/js/app19c1.js" defer></script>
+</head>
+<body data-bs-theme="dark">
+<div id="app">
+    <nav class="navbar navbar-expand-lg storycraft-nav fixed-top"><div class="container"></div></nav>
+    <section class="page-hero">
+        <div class="container page-header-shell">
+            <span class="page-badge">Carte du serveur</span>
+            <h1 class="page-title">Prépare l'intégration <span class="gradient">BlueMap / Dynmap</span></h1>
+            <p class="page-subtitle">La page est prête à recevoir une iframe sécurisée, un reverse proxy ou une sous-route dédiée vers ta carte web Minecraft.</p>
+        </div>
+    </section>
+    <main class="main-content">
+        <section class="page-section pt-0">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="media-card h-100">
+                            <h2 class="section-title">Zone d'intégration</h2>
+                            <div class="console-output" style="min-height:420px; display:grid; place-items:center; font-family:inherit; color:var(--text-secondary);">Insère ici l'URL BlueMap ou Dynmap via un reverse proxy HTTPS.
+Exemple futur : https://map.arkos.local</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="media-card h-100">
+                            <h2 class="section-title">Bonnes pratiques</h2>
+                            <div class="leaderboard-list mt-4">
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-shield-lock"></i></span><div><strong>HTTPS</strong><div class="text-muted">Expose la carte via le même tunnel ou un sous-domaine Cloudflare.</div></div></div></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-arrow-left-right"></i></span><div><strong>Reverse proxy</strong><div class="text-muted">Évite les appels localhost côté navigateur.</div></div></div></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-map"></i></span><div><strong>Navigation cohérente</strong><div class="text-muted">La carte devient une page officielle du portail.</div></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<footer class="site-footer"></footer>
+</body>
+</html>

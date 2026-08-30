@@ -1,1065 +1,276 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<!-- Mirrored from swaynight.fr/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 19:27:58 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SwayNight • Serveur minecraft français Oneblock acceptant les versions cracks, premiums et bedrock • Play.swaynight.fr - 1.21.8">
-    <meta name="theme-color" content="#f0b000">
-    <meta name="author" content="Azuriom">
-
-    <meta property="og:title" content="Accueil">
+    <meta name="description" content="ARKOS, le portail officiel du serveur Minecraft : économie, métiers, quêtes, guildes, événements et boutique.">
+    <meta name="theme-color" content="#07110B">
+    <meta name="author" content="ARKOS">
+    <meta property="og:title" content="ARKOS — Portail officiel">
     <meta property="og:type" content="website">
     <meta property="og:url" content="index.html">
     <meta property="og:image" content="storage/img/icone.png">
-    <meta property="og:description" content="SwayNight • Serveur minecraft français Oneblock acceptant les versions cracks, premiums et bedrock • Play.swaynight.fr - 1.21.8">
-    <meta property="og:site_name" content="SwayNight">
-    
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="QDeztISIv6u7keKBiYbjcMYXkXt7FNd2580cKQ3j">
-
-    <title>Accueil | SwayNight</title>
-
-    <!-- Favicon -->
+    <meta property="og:description" content="L'aventure Minecraft commence ici.">
+    <meta property="og:site_name" content="ARKOS">
+    <title>ARKOS — Accueil</title>
     <link rel="shortcut icon" href="storage/img/icone.png">
-
-    <!-- Scripts -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js?v1.2.9" defer></script>
-    <script src="assets/vendor/axios/axios.min19c1.js?v1.2.9" defer></script>
-    <script src="assets/js/script19c1.js?v1.2.9" defer></script>
-    <script src="assets/themes/rune/js/app19c1.js?v1.2.9" defer></script>
-
-    <!-- Page level scripts -->
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const discordMemberElement = document.getElementById('discord-member-count');
-    const discordInvite = '3hB2Rz3pen';
-    
-    if (discordInvite && discordMemberElement) {
-        async function fetchDiscordMembers() {
-            try {
-                const url = `https://discord.com/api/v9/invites/${discordInvite}?with_counts=true&with_expiration=true`;
-                
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (compatible; DiscordBot)',
-                        'Accept': 'application/json'
-                    },
-                    mode: 'cors'
-                });
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    if (data.approximate_member_count) {
-                        const memberCount = new Intl.NumberFormat('fr-FR').format(data.approximate_member_count);
-                        discordMemberElement.innerHTML = `${memberCount} membres connectés`;
-                    } else {
-                        discordMemberElement.innerHTML = 'Rejoignez-nous sur Discord';
-                    }
-                } else {
-                    discordMemberElement.innerHTML = 'Rejoignez-nous sur Discord';
-                }
-            } catch (error) {
-                console.warn('Impossible de récupérer le nombre de membres Discord:', error);
-                discordMemberElement.innerHTML = 'Rejoignez-nous sur Discord';
-            }
-        }
-        
-        fetchDiscordMembers();
-    }
-});
-</script>
-
-    <!-- Fonts -->
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons19c1.css?v1.2.9" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min19c1.css?v1.2.9" rel="stylesheet">
-    <link href="assets/css/base19c1.css?v1.2.9" rel="stylesheet">
-    <link href="assets/themes/rune/css/style19c1.css?v1.2.9" rel="stylesheet">
-        <style>
-    :root,
-    [data-bs-theme=light] {
-        --bs-primary: #f0b000;
-        --bs-primary-rgb: 240, 176, 0;
-        --bs-primary-text-emphasis: #604600;
-        --bs-primary-bg-subtle: #fcefcc;
-        --bs-primary-border-subtle: #f9df99;
-        --bs-link-hover-color: #c08d00;
-        --bs-link-hover-color-rgb: 192, 141, 0;
-
-        --bs-primary-color-contrast: #000;
-        --bs-btn-primary-hover-bg: #cc9600;
-        --bs-btn-primary-active-bg: #cc9600;
-        --bs-btn-primary-focus-shadow-rgb: 204, 150, 0;
-    }
-
-    [data-bs-theme=dark] {
-        --bs-body-bg: #171717;
-        --bs-body-color: #ffffff;
-        
-        --bs-primary: #f0b000;
-        --bs-primary-rgb: 240, 176, 0;
-        --bs-primary-text-emphasis: #906a00;
-        --bs-primary-bg-subtle: #302300;
-        --bs-primary-border-subtle: #f6d066;
-        
-        --bs-link-color: #f6d066;
-        --bs-link-hover-color: #f3c033;
-        --bs-link-color-rgb: 246, 208, 102;
-        --bs-link-hover-color-rgb: 243, 192, 51;
-        
-        --bs-border-color: rgba(255, 255, 255, 0.1);
-        --bs-border-color-translucent: rgba(255, 255, 255, 0.1);
-        
-        --bs-form-control-bg: #0a0a0b;
-        --bs-form-control-border-color: rgba(255, 255, 255, 0.1);
-        --bs-form-control-focus-bg: #0a0a0b;
-        --bs-form-control-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
-        --bs-form-control-disabled-bg: #0a0a0b;
-        --bs-form-control-disabled-border-color: rgba(255, 255, 255, 0.1);
-        
-        --bs-form-check-bg: #0a0a0b;
-        --bs-form-check-border-color: rgba(255, 255, 255, 0.1);
-        --bs-form-check-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
-        
-        --bs-form-switch-bg: rgba(255, 255, 255, 0.1);
-        --bs-form-switch-focus-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#f0b000'/%3e%3c/svg%3e");
-        --bs-form-switch-checked-color: #171717;
-        --bs-form-switch-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
-        --bs-form-switch-checked-border-color: #f0b000;
-        
-        --bs-input-group-addon-bg: #0a0a0b;
-        --bs-input-group-addon-border-color: rgba(255, 255, 255, 0.1);
-        
-        --bs-form-select-bg: #0a0a0b;
-        --bs-form-select-border-color: rgba(255, 255, 255, 0.1);
-        --bs-form-select-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
-        --bs-form-select-disabled-bg: #0a0a0b;
-        --bs-form-select-disabled-border-color: rgba(255, 255, 255, 0.1);
-        --bs-form-select-indicator-color: rgba(255, 255, 255, 0.5);
-        
-        --bs-nav-tabs-border-color: rgba(255, 255, 255, 0.1);
-        --bs-nav-tabs-link-active-bg: #0a0a0b;
-        --bs-nav-tabs-link-active-border-color: rgba(255, 255, 255, 0.1);
-        --bs-nav-tabs-link-hover-border-color: rgba(255, 255, 255, 0.1);
-        --bs-nav-tabs-link-focus-border-color: rgba(255, 255, 255, 0.1);
-        --bs-nav-tabs-link-disabled-color: rgba(255, 255, 255, 0.5);
-        --bs-nav-tabs-link-disabled-border-color: rgba(255, 255, 255, 0.1);
-        
-        --bs-nav-pills-link-active-color: #171717;
-        
-        --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
-        --bs-navbar-toggler-focus-box-shadow: 0 0 0 0.25rem 240, 176, 0, 0.25;
-        --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        --bs-navbar-toggler-hover-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='#f0b000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        
-        --bs-dropdown-bg: #0a0a0b;
-        --bs-dropdown-border-color: rgba(255, 255, 255, 0.1);
-        --bs-dropdown-link-active-color: #171717;
-        --bs-dropdown-link-hover-bg: 240, 176, 0, 0.1;
-        --bs-dropdown-link-focus-hover-bg: 240, 176, 0, 0.1;
-        --bs-dropdown-link-disabled-color: rgba(255, 255, 255, 0.5);
-        --bs-dropdown-header-color: rgba(255, 255, 255, 0.5);
-        --bs-dropdown-divider-bg: rgba(255, 255, 255, 0.1);
-        --bs-dropdown-divider-border-color: rgba(255, 255, 255, 0.1);
-        --bs-dropdown-spacer-bg: rgba(255, 255, 255, 0.1);
-        
-        --bs-dropdown-dark-color: #ffffff;
-        --bs-dropdown-dark-bg: #0a0a0b;
-        --bs-dropdown-dark-border-color: rgba(255, 255, 255, 0.1);
-        --bs-dropdown-dark-divider-bg: rgba(255, 255, 255, 0.1);
-        --bs-dropdown-dark-link-color: #ffffff;
-        --bs-dropdown-dark-link-hover-bg: 240, 176, 0, 0.1;
-        --bs-dropdown-dark-link-active-color: #171717;
-        --bs-dropdown-dark-link-disabled-color: rgba(255, 255, 255, 0.5);
-        --bs-dropdown-dark-header-color: rgba(255, 255, 255, 0.5);
-        
-        --bs-btn-primary-hover-bg: #cc9600;
-        --bs-btn-primary-active-bg: #cc9600;
-        --bs-btn-primary-focus-shadow-rgb: 204, 150, 0;
-    }
-</style>
-
-    <style>
-        :root {
-            --primary-orange: #f0b000;
-            --primary-orange-light: #ffb73d;
-            --primary-orange-dark: #d49c00;
-            
-            --bg-hover: rgba(240, 176, 0, 0.1);
-            --bg-hover-strong: rgba(240, 176, 0, 0.15);
-            --bg-hover-weak: rgba(240, 176, 0, 0.05);
-            
-            --border-primary: rgba(240, 176, 0, 0.3);
-            --border-hover: rgba(240, 176, 0, 0.2);
-            --border-avatar: rgba(240, 176, 0, 0.5);
-            --border-server-hover: rgba(240, 176, 0, 0.6);
-            --border-footer: rgba(240, 176, 0, 0.15);
-            --border-footer-link: rgba(240, 176, 0, 0.1);
-            --border-strong: rgba(240, 176, 0, 0.4);
-            
-            --shadow-orange: rgba(240, 176, 0, 0.3);
-            --shadow-orange-light: rgba(240, 176, 0, 0.2);
-            --shadow-orange-heavy: rgba(240, 176, 0, 0.4);
-            --shadow-footer: rgba(240, 176, 0, 0.05);
-            
-            --bg-footer-glow-1: rgba(240, 176, 0, 0.08);
-            --bg-footer-glow-2: rgba(240, 176, 0, 0.05);
-            --bg-footer-glow-3: rgba(255, 183, 61, 0.03);
-            --bg-footer-gradient-1: rgba(240, 176, 0, 0.05);
-            --bg-footer-gradient-2: rgba(255, 183, 61, 0.03);
-        }
-    </style>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons19c1.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min19c1.css" rel="stylesheet">
+    <link href="assets/css/base19c1.css" rel="stylesheet">
+    <link href="assets/themes/rune/css/style19c1.css" rel="stylesheet">
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min19c1.js" defer></script>
+    <script src="assets/vendor/axios/axios.min19c1.js" defer></script>
+    <script src="assets/js/script19c1.js" defer></script>
+    <script src="assets/themes/rune/js/app19c1.js" defer></script>
 </head>
-
-<body data-bs-theme="dark">
+<body data-bs-theme="dark" data-notify-on-load>
 <div id="app">
     <header>
-        <style>
-    /* ========================================
-       SYSTÈME D'ALERTES ULTRA-ANIMÉES
-       ======================================== */
-    
-    :root {
-        --alert-height: 0px;
-    }
-    
-    /* ========================================
-       BANNIÈRE D'URGENCE (ROUGE) - Format 2 lignes
-       ======================================== */
-    
-    .alert-urgent {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1050;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 
-            0 4px 30px rgba(220, 38, 38, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15),
-            0 0 50px rgba(220, 38, 38, 0.3);
-        animation: slideDownShake 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55), alertPulse 3s ease-in-out 0.7s infinite;
-        overflow: hidden;
-    }
-    
-    /* Effet d'alerte qui pulse sur fond */
-    .alert-urgent::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-        animation: rotate 10s linear infinite;
-    }
-    
-    /* Effet shimmer rapide qui traverse */
-    .alert-urgent::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.2),
-            transparent
-        );
-        animation: shimmerFast 2s infinite;
-    }
-    
-    /* ========================================
-       BANNIÈRE NORMALE (VERT) - Format 2 lignes
-       ======================================== */
-    
-    .alert-success {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1050;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 
-            0 4px 30px rgba(16, 185, 129, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        animation: slideDownBounce 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        overflow: hidden;
-    }
-    
-    /* Effet shimmer élégant qui traverse */
-    .alert-success::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.15),
-            transparent
-        );
-        animation: shimmer 3s infinite;
-    }
-    
-    .alert-banner__container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 8px 24px;
-        position: relative;
-        z-index: 1;
-    }
-    
-    /* ========================================
-       LIGNE 1 : Badge + Date + Actions
-       ======================================== */
-    
-    .alert-banner__top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 6px;
-    }
-    
-    .alert-banner__left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-    
-    /* Badge avec pulse */
-    .alert-banner__badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        background: rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #fff;
-        animation: badgePulse 2s ease-in-out infinite;
-    }
-    
-    .alert-banner__dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #fff;
-        box-shadow: 
-            0 0 0 0 rgba(255, 255, 255, 0.7),
-            0 0 10px rgba(255, 255, 255, 0.5);
-        animation: dotPulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-    
-    /* Date */
-    .alert-banner__date {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 600;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(8px);
-    }
-    
-    .alert-banner__date i {
-        font-size: 12px;
-    }
-    
-    /* Actions */
-    .alert-banner__actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-    
-    .alert-banner__btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
-        backdrop-filter: blur(8px);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .alert-banner__btn::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
-    }
-    
-    .alert-banner__btn:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .alert-banner__btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.4);
-    }
-    
-    .alert-banner__btn i {
-        font-size: 14px;
-        position: relative;
-        z-index: 1;
-    }
-    
-    .alert-banner__btn span {
-        position: relative;
-        z-index: 1;
-    }
-    
-    .alert-banner__close {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
-        cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 15px;
-        backdrop-filter: blur(8px);
-    }
-    
-    .alert-banner__close:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: rotate(90deg) scale(1.1);
-        border-color: rgba(255, 255, 255, 0.4);
-    }
-    
-    /* ========================================
-       LIGNE 2 : Icône + Message
-       ======================================== */
-    
-    .alert-banner__bottom {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    
-    .alert-banner__icon {
-        font-size: 24px;
-        flex-shrink: 0;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-        animation: iconBounce 1s ease-in-out infinite;
-    }
-    
-    .alert-urgent .alert-banner__icon {
-        animation: iconShake 0.5s ease-in-out infinite;
-    }
-    
-    .alert-banner__message {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.5;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        animation: textSlide 0.8s ease;
-    }
-    
-    .alert-banner__message strong {
-        font-weight: 700;
-        color: #fff;
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        animation: textGlow 2s ease-in-out infinite;
-    }
-    
-    /* ========================================
-       ANIMATIONS ULTRA-ATTRACTIVES
-       ======================================== */
-    
-    @keyframes slideDownShake {
-        0% {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        60% {
-            transform: translateY(6px);
-            opacity: 1;
-        }
-        75% {
-            transform: translateY(-3px);
-        }
-        85% {
-            transform: translateY(2px);
-        }
-        95% {
-            transform: translateY(-1px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes slideDownBounce {
-        0% {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        60% {
-            transform: translateY(5px);
-            opacity: 1;
-        }
-        80% {
-            transform: translateY(-2px);
-        }
-        100% {
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes alertPulse {
-        0%, 100% {
-            box-shadow: 
-                0 4px 30px rgba(220, 38, 38, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15),
-                0 0 50px rgba(220, 38, 38, 0.3);
-        }
-        50% {
-            box-shadow: 
-                0 4px 40px rgba(220, 38, 38, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                0 0 70px rgba(220, 38, 38, 0.5);
-        }
-    }
-    
-    @keyframes dotPulse {
-        0%, 100% {
-            transform: scale(1);
-            opacity: 1;
-            box-shadow: 
-                0 0 0 0 rgba(255, 255, 255, 0.7),
-                0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        50% {
-            transform: scale(1.3);
-            opacity: 0.8;
-            box-shadow: 
-                0 0 0 6px rgba(255, 255, 255, 0),
-                0 0 20px rgba(255, 255, 255, 0.8);
-        }
-    }
-    
-    @keyframes badgePulse {
-        0%, 100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-        }
-        50% {
-            transform: scale(1.02);
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
-        }
-    }
-    
-    @keyframes iconShake {
-        0%, 100% { transform: translateX(0) rotate(0deg); }
-        10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) rotate(-5deg); }
-        20%, 40%, 60%, 80% { transform: translateX(2px) rotate(5deg); }
-    }
-    
-    @keyframes iconBounce {
-        0%, 100% {
-            transform: translateY(0) scale(1);
-        }
-        50% {
-            transform: translateY(-4px) scale(1.05);
-        }
-    }
-    
-    @keyframes textSlide {
-        from {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    
-    @keyframes textGlow {
-        0%, 100% {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        50% {
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4);
-        }
-    }
-    
-    @keyframes shimmer {
-        0% {
-            left: -100%;
-        }
-        100% {
-            left: 100%;
-        }
-    }
-    
-    @keyframes shimmerFast {
-        0% {
-            left: -100%;
-        }
-        100% {
-            left: 100%;
-        }
-    }
-    
-    @keyframes rotate {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-    
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
-    
-    @media (max-width: 768px) {
-        .alert-banner__container {
-            padding: 8px 16px;
-        }
-        
-        .alert-banner__top {
-            flex-wrap: wrap;
-        }
-        
-        .alert-banner__badge {
-            font-size: 9px;
-            padding: 4px 10px;
-        }
-        
-        .alert-banner__date {
-            font-size: 10px;
-            padding: 3px 8px;
-        }
-        
-        .alert-banner__btn span {
-            display: none;
-        }
-        
-        .alert-banner__icon {
-            font-size: 20px;
-        }
-        
-        .alert-banner__message {
-            font-size: 13px;
-        }
-    }
-    
-    /* Ajustement de la navbar */
-    .navbar.fixed-top {
-        transition: top 0.3s ease;
-    }
-    
-    body.has-alert .navbar.fixed-top {
-        top: var(--alert-height);
-    }
-</style>
+        <nav class="navbar navbar-expand-lg storycraft-nav fixed-top">
+            <div class="container"></div>
+        </nav>
 
-
-
-
-
-
-
-<script>
-    function closeAlert(type) {
-        const banner = document.getElementById('alert-banner-' + type);
-        if (banner) {
-            banner.style.animation = 'slideDownBounce 0.3s cubic-bezier(0.16, 1, 0.3, 1) reverse';
-            setTimeout(() => {
-                banner.style.display = 'none';
-                document.body.classList.remove('has-alert');
-                document.querySelector('.navbar.fixed-top').style.top = '0';
-            }, 300);
-        }
-    }
-</script>
-
-<nav class="navbar navbar-expand-lg storycraft-nav fixed-top">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Afficher/Masquer la navbar">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto nav-menu">
-                                                            <li class="nav-item">
-                            <a class="nav-link  active " href="index.html" >
-                                Accueil
-                            </a>
-                        </li>
-                                                                                <li class="nav-item">
-                            <a class="nav-link " href="vote.html" >
-                                Voter
-                            </a>
-                        </li>
-                                                                                <li class="nav-item">
-                            <a class="nav-link " href="https://discord.gg/3hB2Rz3pen" >
-                                Discord
-                            </a>
-                        </li>
-                                                                                <li class="nav-item">
-                            <a class="nav-link " href="index.html"  target="_blank" rel="noopener noreferrer" >
-                                Wiki
-                            </a>
-                        </li>
-                                                                                <li class="nav-item">
-                            <a class="nav-link " href="rankings.html" >
-                                Classements
-                            </a>
-                        </li>
-                                                                                <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Règlements
-                            </a>
-                            <ul class="dropdown-menu nav-submenu">
-                                                                    <li><a class="dropdown-item " href="https://wiki.walyverse.fr/informations/reglement-en-jeu" >
-                                        En jeu
-                                    </a></li>
-                                                                    <li><a class="dropdown-item " href="https://wiki.walyverse.fr/informations/reglement-discord" >
-                                        Discord
-                                    </a></li>
-                                                            </ul>
-                        </li>
-                                                </ul>
-            
-            <div class="nav-actions d-flex align-items: gap-2">
-                                
-                                    <a href="https://walyverse.fr/#nouvelle-boutique" class="nav-btn nav-btn--shop">
-                        <i class="bi bi-bag"></i>
-                        <span class="btn-text d-none d-lg-inline">Boutique</span>
-                    </a>
-                                
-                                    <a href="user/login.html" class="nav-btn nav-btn--user">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        <span class="btn-text d-none d-lg-inline">Connexion</span>
-                    </a>
-                                            <a href="user/register.html" class="nav-btn nav-btn--user">
-                            <i class="bi bi-person-plus"></i>
-                            <span class="btn-text d-none d-lg-inline">Inscription</span>
-                        </a>
-                                                </div>
-        </div>
-    </div>
-</nav>
-
-<section class="hero-section">
-    <div class="hero-background">
-        <img src="storage/img/fond.png" alt="Background" class="hero-bg">
-        <div class="hero-overlay"></div>
-    </div>
-    
-    <div class="hero-content">
-        <div class="container text-center">
-            <div class="hero-logo">
-                <img src="storage/img/logo2.png" alt="SwayNight" class="logo-image">
+        <section class="hero-section">
+            <div class="hero-background">
+                <img src="storage/img/fond.png" alt="Univers ARKOS" class="hero-bg">
+                <div class="hero-overlay"></div>
             </div>
-            <div class="players-online">
-                <i class="bi bi-people-fill"></i>
-                                    <span><span class="player-number">92</span> joueurs connectés</span>
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-copy-grid">
+                        <div class="hero-text">
+                            <div class="hero-badge"><span class="pulse"></span> Statut <span data-server-status>ONLINE</span></div>
+                            <h1 class="hero-title">Bienvenue sur <span class="gradient">ARKOS</span></h1>
+                            <p class="hero-subtitle">L'aventure Minecraft commence ici. Explore un serveur moderne axé sur l'économie, les métiers, les quêtes, les guildes et un univers forestier pensé comme un vrai monde vivant.</p>
+                            <div class="hero-stats-bar">
+                                <span class="hero-stat-chip"><i class="bi bi-people"></i> <strong data-players-online>128</strong>/<span data-players-max>300</span> joueurs</span>
+                                <span class="hero-stat-chip"><i class="bi bi-controller"></i> Version <strong data-server-version>1.21.8</strong></span>
+                                <span class="hero-stat-chip"><i class="bi bi-hdd-rack"></i> Bedrock <strong data-bedrock-port>19132</strong></span>
                             </div>
-            
-            <div class="hero-actions mt-3">
-                                    <button class="nav-btn nav-btn--shop" 
-                            id="copy-ip-btn" 
-                            data-ip="play.swaynight.fr"
-                            data-copied="IP copiée !"
-                            data-copy-error="Erreur de copie">
-                        <i class="bi bi-clipboard"></i>
-                        <span class="btn-text">play.swaynight.fr</span>
-                    </button>
-                                
-                <button class="nav-btn nav-btn--version">
-                    <i class="bi bi-controller"></i>
-                    <span class="btn-text">Version 1.21.8</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="scroll-indicator">
-        <a href="#main-content">
-            <span>Découvrir</span>
-            <i class="bi bi-chevron-down"></i>
-        </a>
-    </div>
-</section>    </header>
-
-        <main class="main-content" id="main-content">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-8">
-                                                                    <div class="featured-post">
-                            <div class="featured-image">
-                                <a href="news/jouer.html">
-                                                                            <img src="storage/posts/vUlnIlAtJUpsPChxnoMO4O6g4uzFscbQgSYdwjzu.png" alt="Comment rejoindre SwayNight ?">
-                                                                    </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-content-wrapper">
-                                    <h2>Comment rejoindre SwayNight ?</h2>
-                                    <p class="post-excerpt">🐝 Rejoins SwayNight
-👉 IP : play.swaynight.fr (Premium &amp;amp; Crack)👉 Version : 1.21.4👉 Port bedrock : 19132
-📦 Un pack de textures exclusif est proposé à la connexion, pense à l&#039;accepter pour pro...</p>
-                                    <div class="post-meta">
-                                        <span class="post-date"><i class="bi bi-calendar3"></i> 29 août 2025</span>
-                                        <span class="post-author"><i class="bi bi-person"></i> _Socrate</span>
-                                        <span class="post-likes"><i class="bi bi-heart"></i> 6</span>
-                                    </div>
-                                </div>
-                                <div class="post-actions">
-                                    <a href="news/jouer.html" class="read-more">Lire plus</a>
-                                </div>
+                            <div class="hero-actions">
+                                <a href="#why-arkos" class="hero-btn hero-btn-primary primary-cta"><i class="bi bi-play-circle"></i> Jouer maintenant</a>
+                                <a href="https://discord.gg/arkos" target="_blank" rel="noopener" class="hero-btn hero-btn-secondary secondary-cta"><i class="bi bi-discord"></i> Rejoindre Discord</a>
+                                <button class="hero-btn hero-btn-secondary secondary-cta" id="copy-ip-btn" data-ip="play.arkos.fr"><i class="bi bi-clipboard"></i><span class="btn-text">play.arkos.fr</span></button>
                             </div>
                         </div>
-
-                                                            </div>
-
-                <div class="col-lg-4">
-                    <div class="widget social-widget">
-                        <h3 class="widget-title">Réseaux sociaux</h3>
-                        
-                                                <div class="social-discord-main">
-                            <a href="https://discord.gg/3hB2Rz3pen" class="discord-main-link">
-                                <i class="bi bi-discord"></i>
-                                <div class="discord-info">
-                                    <span class="discord-title">Rejoindre Discord</span>
-                                    <span class="discord-members" id="discord-member-count">
-                                        <span class="loading-text">Chargement...</span>
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-                        
-                                                
-                                                <div class="social-networks-grid">
-                                                                                                                            <a href="https://www.instagram.com/walyverse/?hl=fr" 
-                                   class="social-network-item" 
-                                   target="_blank" 
-                                   rel="noopener"
-                                   style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border: none; color: white;">
-                                    <i class="bi bi-instagram"></i>
-                                    <span>Instagram</span>
-                                </a>
-                                                                                                                                                            <a href="youtube.html" 
-                                   class="social-network-item" 
-                                   target="_blank" 
-                                   rel="noopener"
-                                   style="background: linear-gradient(45deg, #ff0000 0%, #cc0000 100%); border: none; color: white;">
-                                    <i class="bi bi-youtube"></i>
-                                    <span>YouTube</span>
-                                </a>
-                                                                                                                                                            <a href="https://www.tiktok.com/@walyverse?lang=fr" 
-                                   class="social-network-item" 
-                                   target="_blank" 
-                                   rel="noopener"
-                                   style="background: linear-gradient(45deg, #ff0050 0%, #00f2ea 100%); border: none; color: white;">
-                                    <i class="bi bi-tiktok"></i>
-                                    <span>TikTok</span>
-                                </a>
-                                                                                                                                                            <a href="https://x.com/Walyverse" 
-                                   class="social-network-item" 
-                                   target="_blank" 
-                                   rel="noopener"
-                                   style="background: linear-gradient(45deg, #1da1f2 0%, #0d8bd9 100%); border: none; color: white;">
-                                    <i class="bi bi-twitter-x"></i>
-                                    <span>X (Twitter)</span>
-                                </a>
-                                                                                    </div>
-                                            </div>
-
-                    <div class="widget stats-widget">
-                        <h3 class="widget-title">Statistiques</h3>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-value">3 ans</div>
-                                <div class="stat-label">SANS AUCUN<br>RESET</div>
+                        <aside class="hero-panel">
+                            <div class="status-card mb-3">
+                                <div class="status-label">IP du serveur</div>
+                                <div class="server-ip" data-server-ip>play.arkos.fr</div>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-value">209</div>
-                                <div class="stat-label">RECORD DE<br>CONNECTÉS</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">92</div>
-                                <div class="stat-label">JOUEURS<br>EN LIGNE</div>
-                            </div>
-                        </div>
-                        <a href="rankings.html" class="stats-more">VOIR PLUS DE STATISTIQUES</a>
-                    </div>
-
-                    <div class="widget vote-ranking-widget">
-                        <h3 class="widget-title">Classement</h3>
-                        <div class="vote-ranking-list">
-                            <div class="vote-item">
-                                <div class="vote-rank">1</div>
-                                <div class="vote-avatar">
-                                    <img src="https://vzge.me/face/1_ane_onyme.webp" alt="Avatar">
+                            <div class="server-status-grid">
+                                <div class="status-card">
+                                    <div class="status-label">Statut</div>
+                                    <div class="status-value"><span class="status-pill" data-server-status>ONLINE</span></div>
                                 </div>
-                                <div class="vote-info">
-                                    <div class="vote-username">1_ane_onyme</div>
-                                    <div class="vote-count">13 votes</div>
+                                <div class="status-card">
+                                    <div class="status-label">Joueurs connectés</div>
+                                    <div class="status-value"><span data-players-online>128</span>/<span data-players-max>300</span></div>
                                 </div>
-                                <div class="vote-reward">
-                                    <span>1200 Perles 💎</span>
+                                <div class="status-card">
+                                    <div class="status-label">Version</div>
+                                    <div class="status-value" data-server-version>1.21.8</div>
+                                </div>
+                                <div class="status-card">
+                                    <div class="status-label">Uptime</div>
+                                    <div class="status-value" data-uptime>14j 06h</div>
                                 </div>
                             </div>
-                            <div class="vote-item">
-                                <div class="vote-rank">2</div>
-                                <div class="vote-avatar">
-                                    <img src="https://vzge.me/face/LoGestiia.webp" alt="Avatar">
-                                </div>
-                                <div class="vote-info">
-                                    <div class="vote-username">LoGestiia</div>
-                                    <div class="vote-count">12 votes</div>
-                                </div>
-                                <div class="vote-reward">
-                                    <span>800 Perles 💎</span>
-                                </div>
-                            </div>
-                            <div class="vote-item">
-                                <div class="vote-rank">3</div>
-                                <div class="vote-avatar">
-                                    <img src="https://vzge.me/face/Coconiaxx.webp" alt="Avatar">
-                                </div>
-                                <div class="vote-info">
-                                    <div class="vote-username">Coconiaxx</div>
-                                    <div class="vote-count">12 votes</div>
-                                </div>
-                                <div class="vote-reward">
-                                    <span>500 Perles 💎</span>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="vote.html" class="vote-ranking-more">VOIR LE CLASSEMENT COMPLET</a>
+                            <div class="players-online"><i class="bi bi-people-fill"></i> <span><span class="player-number" data-players-online>128</span> aventuriers en ligne</span></div>
+                        </aside>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="scroll-indicator">
+                <a href="#main-content"><span>Découvrir</span><i class="bi bi-chevron-down"></i></a>
+            </div>
+        </section>
+    </header>
+
+    <main class="main-content" id="main-content">
+        <section class="page-section" id="why-arkos">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Pourquoi ARKOS ?</span>
+                        <h2 class="section-title">Un portail pensé pour un vrai serveur Minecraft</h2>
+                        <p class="section-description">Une identité forêt premium, des fonctionnalités communautaires fortes et une architecture prête pour le temps réel.</p>
+                    </div>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-coin"></i></div><h3 class="feature-title">Économie</h3><p class="feature-copy">Une monnaie stable, des récompenses utiles et une vraie progression sur le long terme.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-briefcase"></i></div><h3 class="feature-title">Métiers</h3><p class="feature-copy">Débloque des spécialisations, des bonus et des voies d'évolution liées à ton style de jeu.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-map"></i></div><h3 class="feature-title">Quêtes</h3><p class="feature-copy">Des objectifs journaliers et des arcs scénarisés pour guider les nouveaux comme les vétérans.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-shield"></i></div><h3 class="feature-title">Guildes</h3><p class="feature-copy">Crée ton groupe, défends ton territoire et grimpe dans les classements communautaires.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-shop"></i></div><h3 class="feature-title">Marché</h3><p class="feature-copy">Achète, revend et surveille les meilleures opportunités sur une économie pilotée par les joueurs.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-hammer"></i></div><h3 class="feature-title">Hôtel des ventes</h3><p class="feature-copy">Mets aux enchères tes trouvailles rares et développe ta réputation de marchand.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-calendar-event"></i></div><h3 class="feature-title">Événements</h3><p class="feature-copy">Boss, tournois, marchés spéciaux et animations régulières pour relancer le serveur chaque semaine.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-stars"></i></div><h3 class="feature-title">Cosmétiques</h3><p class="feature-copy">Particules, badges, titres et apparences pour personnaliser ton identité sans casser l'équilibre.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-trophy"></i></div><h3 class="feature-title">Classements</h3><p class="feature-copy">Compare ta richesse, ton temps de jeu, tes votes, tes quêtes et tes performances de guilde.</p></article>
+                    <article class="feature-card"><div class="feature-icon"><i class="bi bi-tree"></i></div><h3 class="feature-title">Monde personnalisé</h3><p class="feature-copy">Un univers jungle et forêt, dense, lisible et immersif, prêt à accueillir des extensions futures.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Vue rapide</span>
+                        <h2 class="section-title">Les chiffres qui comptent</h2>
+                    </div>
+                </div>
+                <div class="quick-grid">
+                    <article class="metric-card"><div class="metric-label">Joueurs connectés</div><div class="metric-value"><span data-players-online>128</span></div></article>
+                    <article class="metric-card"><div class="metric-label">Membres Discord</div><div class="metric-value"><span data-discord-members>1842</span></div></article>
+                    <article class="metric-card"><div class="metric-label">Statut serveur</div><div class="metric-value"><span data-server-status>ONLINE</span></div></article>
+                    <article class="metric-card"><div class="metric-label">Version</div><div class="metric-value"><span data-server-version>1.21.8</span></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="ranking-highlight-card h-100">
+                            <span class="section-kicker">Classements</span>
+                            <h2 class="section-title">Les meilleurs joueurs ARKOS</h2>
+                            <div class="leaderboard-list">
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="rank-number top-1">1</span><span class="avatar-cube">K</span><div><strong>Kael</strong><div class="text-muted">Richesse</div></div></div><strong>12 450 000 ⛃</strong></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="rank-number top-2">2</span><span class="avatar-cube">M</span><div><strong>Mira</strong><div class="text-muted">Temps de jeu</div></div></div><strong>684 h</strong></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="rank-number top-3">3</span><span class="avatar-cube">N</span><div><strong>Nyx</strong><div class="text-muted">Votes</div></div></div><strong>126 votes</strong></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="rank-number">4</span><span class="avatar-cube">O</span><div><strong>Orion</strong><div class="text-muted">Niveau</div></div></div><strong>Niveau 87</strong></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="rank-number">5</span><span class="avatar-cube">S</span><div><strong>Sylve</strong><div class="text-muted">Métier</div></div></div><strong>Forgeron légendaire</strong></div>
+                            </div>
+                            <div class="mt-3"><a href="rankings.html" class="read-more">Voir tous les classements</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="ranking-highlight-card h-100">
+                            <span class="section-kicker">Vote</span>
+                            <h2 class="section-title">Aide le serveur à grandir</h2>
+                            <p class="section-description">Vote chaque jour pour booster la visibilité d'ARKOS et récupérer de la monnaie, des clés et des récompenses exclusives.</p>
+                            <div class="vote-grid mt-4">
+                                <article class="vote-highlight"><h3 class="feature-title">Récompenses quotidiennes</h3><p class="feature-copy">Monnaie, points boutique, tickets de caisse et bonus temporaires.</p></article>
+                                <article class="vote-highlight"><h3 class="feature-title">Top voteurs</h3><p class="feature-copy">Des récompenses mensuelles pour les joueurs les plus réguliers.</p></article>
+                                <article class="vote-highlight"><h3 class="feature-title">Suivi simplifié</h3><p class="feature-copy">Le site affiche les plateformes de vote et prépare le crédit automatique via le backend.</p></article>
+                            </div>
+                            <div class="mt-3"><a href="vote.html" class="read-more">Accéder à la page vote</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Actualités</span>
+                        <h2 class="section-title">Les dernières nouvelles du serveur</h2>
+                    </div>
+                    <a href="news/jouer.html" class="read-more">Voir les actus</a>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-visual"><img src="storage/posts/vUlnIlAtJUpsPChxnoMO4O6g4uzFscbQgSYdwjzu.png" alt="Ouverture ARKOS"></div>
+                        <span class="category-pill">Annonce</span>
+                        <h3 class="news-title mt-3">Ouverture de la saison Jungle I</h3>
+                        <p class="news-summary">Une nouvelle aventure ARKOS débute avec un spawn forestier, une économie revue et des quêtes inédites.</p>
+                        <a href="news/jouer.html" class="read-more">Lire</a>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-visual"><img src="storage/img/fond.png" alt="Quartier des artisans"></div>
+                        <span class="category-pill">Mise à jour</span>
+                        <h3 class="news-title mt-3">Le quartier des artisans est disponible</h3>
+                        <p class="news-summary">Marchands, commandes et progression métiers prennent place dans une nouvelle zone immersive.</p>
+                        <a href="news/1/like.html" class="read-more">Lire</a>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-visual"><img src="storage/img/fond.png" alt="Roadmap ARKOS"></div>
+                        <span class="category-pill">Roadmap</span>
+                        <h3 class="news-title mt-3">Le panel admin continue d'évoluer</h3>
+                        <p class="news-summary">Maintenance, notifications, logs et boutique seront pilotables depuis une interface dédiée.</p>
+                        <a href="admin/login.html" class="read-more">Découvrir</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="events">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-kicker">Événements</span>
+                        <h2 class="section-title">Les prochains rendez-vous ARKOS</h2>
+                    </div>
+                    <a href="events.html" class="read-more">Calendrier complet</a>
+                </div>
+                <div class="event-grid">
+                    <article class="event-card">
+                        <span class="status-pill">À venir</span>
+                        <h3 class="event-title mt-3">Boss de la Canopée</h3>
+                        <p class="event-copy">Affrontez un boss coopératif dans la jungle et récupérez des reliques rares.</p>
+                        <p class="text-muted mb-2"><i class="bi bi-calendar-event"></i> 06 septembre 2026 — 20:30</p>
+                        <p class="text-muted">Récompenses : Clé exotique, 25 000 ⛃, cosmétique exclusif</p>
+                        <div class="countdown" data-countdown="2026-09-06T20:30:00Z"></div>
+                    </article>
+                    <article class="event-card">
+                        <span class="status-pill">À venir</span>
+                        <h3 class="event-title mt-3">Marché noir nocturne</h3>
+                        <p class="event-copy">Des vendeurs temporaires proposent des objets rares pendant une durée limitée.</p>
+                        <p class="text-muted mb-2"><i class="bi bi-calendar-event"></i> 10 septembre 2026 — 19:00</p>
+                        <p class="text-muted">Récompenses : Objets spéciaux, matériaux rares, boosts métiers</p>
+                        <div class="countdown" data-countdown="2026-09-10T19:00:00Z"></div>
+                    </article>
+                    <article class="event-card">
+                        <span class="status-pill warning-pill">Inscriptions ouvertes</span>
+                        <h3 class="event-title mt-3">Tournoi des guildes</h3>
+                        <p class="event-copy">Combattez, capturez des objectifs et dominez le classement communautaire.</p>
+                        <p class="text-muted mb-2"><i class="bi bi-calendar-event"></i> 14 septembre 2026 — 18:00</p>
+                        <p class="text-muted">Récompenses : Titre de guilde, coffre premium, points de saison</p>
+                        <div class="countdown" data-countdown="2026-09-14T18:00:00Z"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="container">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-6">
+                        <div class="shop-card h-100">
+                            <span class="section-kicker">Boutique</span>
+                            <h2 class="section-title">Soutiens le serveur avec style</h2>
+                            <p class="section-description">Grades, clés, cosmétiques, kits, monnaie et packs sont prêts à être gérés depuis l'administration.</p>
+                            <div class="shop-grid mt-4">
+                                <article class="info-card"><h3 class="info-title">Grades</h3><p class="info-copy">VIP, VIP+, MVP, MVP+, Titan et Staff.</p></article>
+                                <article class="info-card"><h3 class="info-title">Cosmétiques</h3><p class="info-copy">Particules, badges, titres et personnalisations visuelles.</p></article>
+                                <article class="info-card"><h3 class="info-title">Packs</h3><p class="info-copy">Offres premium prêtes pour Tebex ou CraftingStore.</p></article>
+                            </div>
+                            <div class="mt-3"><a href="shop.html" class="read-more">Ouvrir la boutique</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="media-card h-100">
+                            <span class="section-kicker">Infrastructure</span>
+                            <h2 class="section-title">Auto-hébergeable et prêt pour évoluer</h2>
+                            <p class="section-description">Le portail ARKOS est pensé pour Docker, Cloudflare Tunnel, une base SQLite migrable vers PostgreSQL et une connexion sécurisée au serveur Minecraft.</p>
+                            <div class="leaderboard-list mt-4">
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-box-seam"></i></span><div><strong>Docker</strong><div class="text-muted">Lancement simple avec docker compose</div></div></div></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-shield-lock"></i></span><div><strong>Sécurité</strong><div class="text-muted">Sessions, hashage, contrôle admin et logs</div></div></div></div>
+                                <div class="leaderboard-row"><div class="leaderboard-main"><span class="avatar-cube"><i class="bi bi-cloud"></i></span><div><strong>Cloudflare Tunnel</strong><div class="text-muted">Accès externe sans ouvrir les ports dangereux</div></div></div></div>
+                            </div>
+                            <div class="mt-3"><a href="admin/login.html" class="read-more">Voir l'admin panel</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
-
 </div>
 
-<!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="row g-4">
-                                            <div class="col-lg-3 col-md-6">
-                                                            <h4 class="footer-title">SwayNight</h4>
-                                <p class="footer-description">
-                                    Tu crois connaître le Oneblock ? SwayNight te fait revoir les bases : Grades à farmer, classes, compétences, mobcoins, pêche revisitée etc... Chaque bloc peut t&#039;emmener très loin. Et si tu tenais enfin le serveur qui te rendra accro ?
-                                </p>
-                            
-                                                    </div>
-                                            <div class="col-lg-3 col-md-6">
-                                                            <h4 class="footer-title">Navigation</h4>
-                                <ul class="footer-links">
-                                                                            <li><a href="index.html">Accueil</a></li>
-                                                                            <li><a href="https://discord.gg/3hB2Rz3pen">Actualités</a></li>
-                                                                            <li><a href="https://astralya.fr/">Serveur Survie</a></li>
-                                                                    </ul>
-                            
-                                                    </div>
-                                            <div class="col-lg-3 col-md-6">
-                                                            <h4 class="footer-title">En savoir plus...</h4>
-                                <ul class="footer-links">
-                                                                            <li><a href="https://walyverse.fr/">Walyverse</a></li>
-                                                                            <li><a href="https://wiki.walyverse.fr/">Wiki</a></li>
-                                                                            <li><a href="http://www.serveurs-minecraft.org/">Serveur Minecraft</a></li>
-                                                                    </ul>
-                            
-                                                    </div>
-                                            <div class="col-lg-3 col-md-6">
-                                                            <h4 class="footer-title">Vote</h4>
-                                <p class="footer-description">
-                                    Soutiens SwayNight en votant quotidiennement pour gagner des récompenses exclusives. 💖
-                                </p>
-                                <a href="vote.html" class="footer-action-button">
-                                                                            <i class="bi bi-heart"></i>
-                                                                        VOTER
-                                </a>
-                                                    </div>
-                                    </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p class="copyright">
-                        Copyright © 2020 - 2026 SwayNight - Tous droits réservés. Nous ne sommes pas affiliés à Mojang AB ou Microsoft. Contact : <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="87e4e8e9f3e6e4f3a9f0e6ebfef1e2f5f4e2c7e0eae6eeeba9e4e8ea">[email&#160;protected]</a>
-                        </p>
-                        <p class="powered-by">
-                            Propulsé par <a href="https://azuriom.com/" target="_blank" class="azuriom-link">Azuriom</a> • Développé par <a href="https://wiregency.com/" target="_blank" class="wiregency-link">WireGency</a>
-                        </p>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="footer-bottom-links">
-                                                            <a href="https://walyverse.fr/#cgv">Mentions légales</a>
-                                                            <a href="https://walyverse.fr/#cgv">CGU / CGV</a>
-                                                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
-
-<!-- Mirrored from swaynight.fr/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 19:28:05 GMT -->
+<footer class="site-footer"></footer>
+</body>
 </html>
