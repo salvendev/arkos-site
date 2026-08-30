@@ -152,7 +152,3 @@ create table if not exists public.metrics (
     metric_date text not null,
     value       double precision not null default 0
 );
-
--- Sécurité : la table users ne doit pas être lisible par le client anonyme.
-alter table public.users enable row level security;
-create policy "users authed" on public.users for select using (auth.role() = 'authenticated');
