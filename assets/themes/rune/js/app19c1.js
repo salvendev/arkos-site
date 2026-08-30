@@ -246,14 +246,14 @@
         oldBrandText.forEach((node) => {
             const attr = node.getAttribute('content');
             if (attr) {
-                node.setAttribute('content', attr.replace(/SwayNight/gi, 'ARKOS').replace(/Walyverse/gi, 'ARKOS'));
+                node.setAttribute('content', attr.replace(/Arkos/gi, 'ARKOS'));
             } else if (node.textContent) {
-                node.textContent = node.textContent.replace(/SwayNight/gi, 'ARKOS').replace(/Walyverse/gi, 'ARKOS');
+                node.textContent = node.textContent.replace(/Arkos/gi, 'ARKOS');
             }
         });
 
         if (document.title) {
-            document.title = document.title.replace(/SwayNight/gi, 'ARKOS').replace(/Page non trouvée/gi, 'ARKOS');
+            document.title = document.title.replace(/Arkos/gi, 'ARKOS');
         }
     }
 

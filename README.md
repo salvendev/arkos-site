@@ -2,14 +2,16 @@
 
 Cette refonte transforme la base statique fournie en **portail officiel ARKOS** avec :
 
-- identité visuelle verte / forêt / premium
+- identité visuelle **verte** / forêt / premium
 - landing page moderne
 - pages vote / classements / actualités / boutique / carte / événements
 - **admin panel** complet sous `/admin`
-- backend Flask + SQLite
+- backend Flask + SQLite (et **Supabase/PostgreSQL** en production)
 - architecture Docker
 - compatibilité **Cloudflare Tunnel**
-- préparation au lien sécurisé entre le site et le serveur Minecraft
+- **lien sécurisé** entre le site et le serveur Minecraft (votes → commandes RCON en jeu)
+
+> 📖 **Pour mettre le site en ligne sur Vercel + Supabase (étape par étape, pour débutants), suis le guide : [`GUIDE-SUPABASE-VERCEL.md`](GUIDE-SUPABASE-VERCEL.md)**.
 
 ---
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sqlite3
 import subprocess
 import time
@@ -42,7 +43,45 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
-def get_db() -> sqlite3.Connection:
+def adapt_sql(sql: str) -> str:
+    """Transforme le style de placeholders SQLite en style PostgreSQL/psycopg."""
+    sql = re.sub(r":([A-Za-z_][A-Za-z0-9_]*)", r"%(\1)s", sql)
+    return sql.replace('?', '%s')
+
+
+class PostgresConnection:
+    """Wrapper minimal pour utiliser le même code avec SQLite (dev) ou Supabase/Postgres (prod)."""
+
+    def __init__(self, conn: Any) -> None:
+        self.conn = conn
+
+    def execute(self, sql: str, params: Any = None):
+        return self.conn.execute(adapt_sql(sql), params or ())
+
+    def executescript(self, sql: str) -> Any:
+        for statement in sql.split(';'):
+            if statement.strip():
+                self.conn.execute(statement)
+        return self
+
+    def commit(self) -> None:
+        self.conn.commit()
+
+    def close(self) -> None:
+        self.conn.close()
+
+    def __getattr__(self, name):
+        return getattr(self.conn, name)
+
+
+def get_db() -> Any:
+    url = os.environ.get('DATABASE_URL')
+    if url:
+        import psycopg
+        from psycopg.rows import dict_row
+        conn = psycopg.connect(url, row_factory=dict_row)
+        return PostgresConnection(conn)
+
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
@@ -82,8 +121,8 @@ def seed_db() -> None:
 
     for site in SEED_DATA['vote_sites']:
         connection.execute(
-            'INSERT INTO vote_sites (id, name, reward, link, status, cooldown_minutes) VALUES (?, ?, ?, ?, ?, ?)',
-            (site['id'], site['name'], site['reward'], site['link'], site['status'], site['cooldown_minutes']),
+            'INSERT INTO vote_sites (id, name, reward, reward_command, link, status, cooldown_minutes) VALUES (?, ?, ?, ?, ?, ?, ?)',
+            (site['id'], site['name'], site['reward'], site.get('reward_command', ''), site['link'], site['status'], site['cooldown_minutes']),
         )
 
     for post in SEED_DATA['news']:
@@ -389,6 +428,67 @@ def public_status() -> Any:
     return jsonify(build_bundle()['server'])
 
 
+@app.post('/api/vote/record')
+def vote_record() -> Any:
+    """Enregistre un vote et envoie la récompense au serveur Minecraft via RCON."""
+    payload = request.get_json(silent=True) or request.form
+    pseudo = (payload.get('pseudo') or '').strip()
+    raw_site_id = payload.get('site_id')
+
+    if not pseudo or raw_site_id is None:
+        return jsonify({'message': 'Pseudo et site de vote sont requis.'}), 400
+
+    try:
+        site_id = int(raw_site_id)
+    except (TypeError, ValueError):
+        return jsonify({'message': 'Identifiant de site invalide.'}), 400
+
+    connection = get_db()
+    site = connection.execute('SELECT * FROM vote_sites WHERE id = ?', (site_id,)).fetchone()
+    if not site:
+        connection.close()
+        return jsonify({'message': 'Site de vote introuvable.'}), 404
+
+    player = connection.execute('SELECT * FROM minecraft_players WHERE pseudo = ?', (pseudo,)).fetchone()
+
+    # Cooldown côté serveur
+    cooldown_ms = int(site['cooldown_minutes'] or 0) * 60 * 1000
+    if cooldown_ms > 0 and player:
+        last = connection.execute(
+            'SELECT voted_at FROM votes WHERE player_id = ? AND site_id = ? ORDER BY voted_at DESC LIMIT 1',
+            (player['id'], site_id),
+        ).fetchone()
+        if last:
+            last_time = datetime.fromisoformat(last['voted_at']).timestamp() * 1000
+            if last_time + cooldown_ms > time.time() * 1000:
+                connection.close()
+                return jsonify({'message': 'Tu as déjà voté récemment pour ce site. Réessaie plus tard.'}), 429
+
+    # Commande de récompense
+    reward_command = (site['reward_command'] or os.environ.get('VOTE_REWARD_COMMAND', '')).strip()
+    if reward_command:
+        resolved = reward_command.replace('{player}', pseudo).replace('%player%', pseudo)
+    else:
+        resolved = ''
+
+    connection.execute(
+        'INSERT INTO votes (player_id, site_id, voted_at, reward) VALUES (?, ?, ?, ?)',
+        (player['id'] if player else None, site_id, now_iso(), site['reward']),
+    )
+    if player:
+        connection.execute('UPDATE minecraft_players SET votes = votes + 1 WHERE id = ?', (player['id'],))
+    connection.commit()
+    connection.close()
+
+    command_result = execute_rcon_command(resolved) if resolved else 'Aucune commande de récompense configurée.'
+    log_admin(f"Vote enregistré pour {pseudo} sur {site['name']} — {command_result}")
+    return jsonify({
+        'message': f"Vote enregistré pour {pseudo}. Récompense envoyée en jeu.",
+        'reward': site['reward'],
+        'command': command_result,
+    })
+
+
 @app.get('/api/auth/session')
 def auth_session() -> Any:
     user = current_user()
@@ -509,6 +609,16 @@ def admin_action() -> Any:
     elif action.startswith('console-command:'):
         command = action.split(':', 1)[1]
         message = execute_rcon_command(command)
+    elif action == 'update-vote-site' and target:
+        data = payload.get('data', {})
+        connection.execute(
+            '''UPDATE vote_sites SET name = ?, reward = ?, reward_command = ?, link = ?, status = ?, cooldown_minutes = ? WHERE id = ?''',
+            (
+                data.get('name', ''), data.get('reward', ''), data.get('reward_command', ''),
+                data.get('link', ''), data.get('status', 'Disponible'), int(data.get('cooldown_minutes', 60)), int(target)
+            ),
+        )
+        message = 'Site de vote mis à jour.'
     else:
         message = f"Action « {action} » enregistrée."
 

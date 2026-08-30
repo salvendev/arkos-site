@@ -278,7 +278,7 @@
             case 'products':
                 return `<section class="admin-card"><div class="admin-actions mb-3"><button class="admin-btn primary" data-admin-action="add-product">Ajouter un produit</button></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Produit</th><th>Catégorie</th><th>Prix</th><th>Réduction</th><th>Actions</th></tr></thead><tbody>${productRows(bundle.shop.products)}</tbody></table></div></section>`;
             case 'votes':
-                return `<section class="admin-double-grid"><div class="admin-card"><h2>Sites de vote</h2><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Nom</th><th>Récompense</th><th>Cooldown</th><th>Statut</th></tr></thead><tbody>${bundle.vote_sites.map((site) => `<tr><td>${escapeHtml(site.name)}</td><td>${escapeHtml(site.reward)}</td><td>${site.cooldown_minutes} min</td><td><span class="status-pill">${escapeHtml(site.status)}</span></td></tr>`).join('')}</tbody></table></div></div><div class="admin-card"><h2>Meilleurs voteurs</h2><div class="log-list">${bundle.top_voters.map((voter, index) => `<div class="log-row"><div class="log-main"><span class="rank-number ${index < 3 ? 'top-' + (index + 1) : ''}">${index + 1}</span><div><strong>${escapeHtml(voter.name)}</strong><div class="text-muted">${escapeHtml(voter.reward)}</div></div></div><strong>${voter.votes}</strong></div>`).join('')}</div></div></section>`;
+                return `<section class="admin-double-grid"><div class="admin-card"><h2>Sites de vote &amp; récompenses</h2><p class="text-muted">Édite le nom, la récompense affichée et la <strong>commande en jeu</strong> exécutée via RCON quand un joueur vote (<code>{player}</code> = pseudo).</p><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Nom</th><th>Récompense</th><th>Commande en jeu</th><th>Cooldown</th><th>Statut</th><th></th></tr></thead><tbody>${bundle.vote_sites.map((site) => `<tr><td><input class="form-control form-control-sm" data-vote-field="name" data-site="${site.id}" value="${escapeHtml(site.name)}"></td><td><input class="form-control form-control-sm" data-vote-field="reward" data-site="${site.id}" value="${escapeHtml(site.reward || '')}"></td><td><input class="form-control form-control-sm" data-vote-field="reward_command" data-site="${site.id}" value="${escapeHtml(site.reward_command || '')}" placeholder="ex : ar vote {player} 250"></td><td><input class="form-control form-control-sm" data-vote-field="cooldown_minutes" data-site="${site.id}" type="number" value="${site.cooldown_minutes}"></td><td><span class="status-pill">${escapeHtml(site.status)}</span></td><td><button class="admin-btn primary" data-save-vote-site="${site.id}">Enregistrer</button></td></tr>`).join('')}</tbody></table></div></div><div class="admin-card"><h2>Meilleurs voteurs</h2><div class="log-list">${bundle.top_voters.map((voter, index) => `<div class="log-row"><div class="log-main"><span class="rank-number ${index < 3 ? 'top-' + (index + 1) : ''}">${index + 1}</span><div><strong>${escapeHtml(voter.name)}</strong><div class="text-muted">${escapeHtml(voter.reward)}</div></div></div><strong>${voter.votes}</strong></div>`).join('')}</div></div></section>`;
             case 'news':
                 return `<section class="admin-card"><div class="admin-actions mb-3"><button class="admin-btn primary" data-admin-action="create-news">Créer une actualité</button></div><div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Titre</th><th>Catégorie</th><th>Auteur</th><th>Date</th><th>Actions</th></tr></thead><tbody>${newsRows(bundle.news)}</tbody></table></div></section>`;
             case 'events':
@@ -337,6 +337,33 @@
                 const message = button.getAttribute('data-confirm');
                 if (message && !window.confirm(message)) return;
                 handleAction(button.getAttribute('data-admin-action'), button.getAttribute('data-target'));
+                return;
+            }
+
+            const saveVote = event.target.closest('[data-save-vote-site]');
+            if (saveVote) {
+                event.preventDefault();
+                const siteId = saveVote.getAttribute('data-save-vote-site');
+                const data = {};
+                document.querySelectorAll(`[data-vote-field][data-site="${siteId}"]`).forEach((field) => {
+                    data[field.getAttribute('data-vote-field')] = field.value.trim();
+                });
+                try {
+                    fetchJson('/api/admin/action', {
+                        method: 'POST',
+                        credentials: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-Token': state.csrfToken || ''
+                        },
+                        body: JSON.stringify({ action: 'update-vote-site', target: siteId, data })
+                    }).then((payload) => {
+                        showToast(payload.message || 'Site de vote mis à jour.', 'success', 'bi-check2-circle');
+                        window.setTimeout(() => window.location.reload(), 800);
+                    }).catch((error) => showToast(error.message || 'Erreur API.', 'danger', 'bi-exclamation-octagon'));
+                } catch (error) {
+                    showToast(error.message || 'Erreur API.', 'danger', 'bi-exclamation-octagon');
+                }
                 return;
             }
 

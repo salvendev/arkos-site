@@ -44,6 +44,25 @@ function updateVoteLink(link) {
     }
 }
 
+async function recordVote(username, siteId) {
+    try {
+        const response = await fetch('/api/vote/record', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pseudo: username, site_id: siteId }),
+            credentials: 'same-origin',
+        });
+        const payload = await response.json();
+        if (!response.ok) {
+            displayVoteAlert(payload.message || 'Impossible d’enregistrer le vote.', 'warning');
+            return;
+        }
+        displayVoteAlert(payload.message || 'Vote enregistré !', 'success');
+    } catch (error) {
+        displayVoteAlert('Vote enregistré localement (mode démo). Le backend n’est pas joignable.', 'warning');
+    }
+}
+
 function initVote() {
     if (!window.username) return;
 
@@ -71,9 +90,7 @@ function initVote() {
             el.dataset.voteTime = until;
             updateVoteLink(el);
 
-            setTimeout(function () {
-                displayVoteAlert('Vote enregistré en mode démo. Relie ensuite ton backend ARKOS pour créditer automatiquement les récompenses en jeu.', 'success');
-            }, 1200);
+            recordVote(window.username, siteId);
         });
 
         el.dataset.bound = 'true';

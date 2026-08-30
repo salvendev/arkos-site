@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS vote_sites (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     reward TEXT,
+    reward_command TEXT,
     link TEXT NOT NULL,
     status TEXT NOT NULL DEFAULT 'Disponible',
     cooldown_minutes INTEGER NOT NULL DEFAULT 1440

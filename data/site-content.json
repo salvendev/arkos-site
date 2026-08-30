@@ -35,7 +35,7 @@
     {"title": "Richesse", "player": "Kael", "value": "12 450 000 ⛃", "link": "rankings/ajlb_vault_eco_balance.html"},
     {"title": "Temps de jeu", "player": "Mira", "value": "684 h", "link": "rankings/ajlb_statistic_hours_played.html"},
     {"title": "Votes", "player": "Nyx", "value": "126 votes", "link": "vote.html#top-voters"},
-    {"title": "Niveau", "player": "Orion", "value": "Niveau 87", "link": "rankings/ajlb_mycommand_playerdata_SwayNight_DailyStreak.html"},
+    {"title": "Niveau", "player": "Orion", "value": "Niveau 87", "link": "rankings/ajlb_mycommand_playerdata_Arkos_DailyStreak.html"},
     {"title": "Métier", "player": "Sylve", "value": "Forgeron légendaire", "link": "rankings/ajlb_statistic_traded_with_villager.html"}
   ],
   "ranking_categories": [
@@ -111,6 +111,7 @@
       "id": 1,
       "name": "Serveur Privé",
       "reward": "250 ⛃ + 1 caisse vote",
+      "reward_command": "ar vote {player} 250",
       "status": "Disponible",
       "link": "https://serveur-prive.net/",
       "cooldown_minutes": 90
@@ -119,6 +120,7 @@
       "id": 2,
       "name": "Serveurs Minecraft",
       "reward": "500 ⛃ + 2 points boutique",
+      "reward_command": "ar vote {player} 500",
       "status": "Disponible",
       "link": "https://www.serveursminecraft.org/",
       "cooldown_minutes": 180
@@ -127,6 +129,7 @@
       "id": 3,
       "name": "Serveur-Minecraft.com",
       "reward": "750 ⛃ + chance de clé rare",
+      "reward_command": "ar vote {player} 750",
       "status": "Disponible",
       "link": "https://serveur-minecraft.com/",
       "cooldown_minutes": 1440
